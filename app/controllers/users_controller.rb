@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
 
   # do we need to see all users of the app?
-  def index
-    render json: User.all, status: :ok
-  end
 
   def show
     render json: User.find(params[:id]), status: :ok
@@ -28,7 +25,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:name, :pronouns, :email, :job_title, :employer, :open_to_work?, :profile_picture, :location)
+    params.permit(:name, :pronouns, :password, :email, :job_title, :employer, :open_to_work?, :profile_picture, :location)
   end
   
 

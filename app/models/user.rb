@@ -14,41 +14,11 @@ class User < ApplicationRecord
 
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true
-    validates :password, presence: true, length: { minimum: 8 }
+    validates :password, length: { minimum: 8 }, format: { with: /\A(?=.*[0-9])/, message: "must include at least one number" }, on: :create
+    validates :password, format: { with: /\A(?=.*[A-Z])/, message: "must include at least one uppercase letter" }, on: :create
+    validates :password, format: { with: /\p{Lower}/, message: "must include at least one lowercase letter" }, on: :create
+    validates :password, format: { with: /\A(?=.*[^A-Za-z0-9])/, message: "must include at least one special character" }, on: :create
+    validates :password, presence: true, on: :create
 
-    validate :password_lower_case
-    validate :password_uppercase
-    validate :password_special_char
-    validate :password_contains_number
-
-    def password_uppercase
-        if self.password
-            return if !!password.match(/\p{Upper}/)
-            errors.add :password, ' must contain at least 1 uppercase '
-        end
-    end
-    
-    
-    def password_lower_case
-        if self.password
-            return if !!password.match(/\p{Lower}/)
-            errors.add :password, ' must contain at least 1 lowercase '
-        end
-    end
-
-    def password_special_char
-        if self.password
-            special = "?<>',?[]}{=-)(*&^%$#`~{}!"
-            regex = /[#{special.gsub(/./){|char| "\\#{char}"}}]/
-            return if password =~ regex
-            errors.add :password, ' must contain special character'
-        end
-    end
-
-    def password_contains_number
-        if self.password
-            return if password.count("0-9") > 0
-            errors.add :password, ' must contain at least one number'
-        end
-    end
+   
 end

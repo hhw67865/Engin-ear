@@ -7,7 +7,7 @@ class TagsController < ApplicationController
   # shows all posts for each tag (see tag_serializer)
   def show
      tag = Tag.find(params[:id])
-     render json: tag, status: :ok
+     render json: tag, serializer: TagPostsSerializer, status: :ok
   end
 
 end

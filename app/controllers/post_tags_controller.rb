@@ -1,5 +1,10 @@
 class PostTagsController < ApplicationController
 
+
+  def index
+    render json: PostTag.all, status: :ok
+  end
+
   def create
     post_tag = PostTag.create!(post_tag_params)
     render json: post_tag, status: :created
