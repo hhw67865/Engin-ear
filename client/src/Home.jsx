@@ -13,9 +13,9 @@ function Home() {
       </select>
       <h3>Create a Post!</h3>
       <form id="post_creation">
-        <label for="title">Title</label>
+        <label htmlFor="title">Title</label>
         <input type="text" name="title"/>
-        <label for="picture">Picture Url</label>
+        <label htmlFor="picture">Picture Url</label>
         <input type="text" name="picture"/>
         <textarea id="post_area" name="post_area" rows="4" cols="50" placeholder="What's on your mind?">
         </textarea>

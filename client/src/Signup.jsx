@@ -1,10 +1,14 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 
 
-function Signup() {
+function Signup () {
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [errors, setErrors] = useState(null)
+
+	let navigate = useNavigate();
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -18,9 +22,18 @@ function Signup() {
 		headers: {'Content-Type' : 'application/json'},
 		body: JSON.stringify(newSignup)
 	})
-		.then((r) => r.json())
-		.then(() => addUser(newSignup))
+		.then((r) => {
+			if (r.ok) {
+				navigate('/login')
+				setErrors(null)
+			}
+			else {
+				r.json()
+				.then(obj => {setErrors(obj.errors)})
+			}
+		})
 	}
+
 
 	return (
 		<div>
@@ -50,6 +63,7 @@ function Signup() {
 						value={password} 
 						onChange={(e) => setPassword(e.target.value)}
 					/>
+				{errors ? errors.map((error)=><p>{error}</p>) : null}
 				<button type="submit">Submit!</button>
 			</form>
 		</div>

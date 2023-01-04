@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom"
 
-function NavBar() {
+function NavBar({user, setUser}) {
 
   return (
     <nav>
@@ -10,10 +10,12 @@ function NavBar() {
       </div>
       <div className="nav-links">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/login">Login</NavLink>
-        <NavLink to="/signup">Signup</NavLink>
-        {/* TERNARY here */}
-        <NavLink to="/profile">Profile</NavLink>
+        {user ? <NavLink to="/profile">Profile</NavLink> : 
+        <>
+          <NavLink to="/login">Login</NavLink>
+          <NavLink to="/signup">Signup</NavLink>
+        </>}
+        
       </div>
     </nav>
   )
