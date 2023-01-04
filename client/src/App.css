@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -38,4 +38,44 @@
 
 .read-the-docs {
   color: #888;
+} */
+
+
+
+/* NAVBAR */
+
+nav a.active {
+  background-color: #026034c7;
+  color: white;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  font-size: 1.8em;
+  font-weight: bold;
+  background-color: #e1dfdf;
+}
+
+nav img {
+  margin-left: 24%;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin-left: 10%;
+  margin-right: 4%;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+}
+
+nav a:hover {
+  /* text-decoration: underline; */
+  color: black
 }

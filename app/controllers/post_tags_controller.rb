@@ -1,5 +1,4 @@
 class PostTagsController < ApplicationController
-  
 
   # def index
   #   render json: PostTag.all, status: :ok
