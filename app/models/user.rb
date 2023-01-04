@@ -20,5 +20,17 @@ class User < ApplicationRecord
     validates :password, format: { with: /\A(?=.*[^A-Za-z0-9])/, message: "must include at least one special character" }, on: :create
     validates :password, presence: true, on: :create
 
+    validates :password, length: { minimum: 8 }, format: { with: /\A(?=.*[0-9])/, message: "must include at least one number" }, if: :password_exists?
+    validates :password, format: { with: /\A(?=.*[A-Z])/, message: "must include at least one uppercase letter" }, if: :password_exists?
+    validates :password, format: { with: /\p{Lower}/, message: "must include at least one lowercase letter" }, if: :password_exists?
+    validates :password, format: { with: /\A(?=.*[^A-Za-z0-9])/, message: "must include at least one special character" }, if: :password_exists?
+
+
+    private
+
+    def password_exists?
+        password
+    end
+
    
 end

@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.4"
 
 gem "faker"
 
+gem "byebug"
+
 gem 'bcrypt'
 
 # Use sqlite3 as the database for Active Record
