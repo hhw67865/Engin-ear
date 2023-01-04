@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
+  
+  skip_before_action :authorize, only: [:create]
 
   # do we need to see all users of the app?
 
+  def index
+    render json: User.all, status: :ok
+  end
+
   def show
-    render json: User.find(params[:id]), status: :ok
+    user = User.find_by(id: session[:user_id])
+    if user
+      render json: user,serializer: UserInfoSerializer, status: :ok
+    else
+      render json: { error: "Not Authorized" }, status: :unauthorized
+    end
   end
 
   def create
@@ -11,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(params[:id])
+    user = User.find(session[:user_id])
     user.update!(user_params)
     render json: user, status: :accepted
   end

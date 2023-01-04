@@ -1,4 +1,5 @@
 class ProfessionalLinksController < ApplicationController
+  
 
   def create
     link = ProfessionalLink.create!(link_params)
