@@ -30,17 +30,17 @@ function Login({setUser}) {
 			},
 			body: JSON.stringify(user)
 		})
-		.then(res => console.log(res)
-    //   {
-		// 	if(res.ok) {
-		// 		res.json().then(user => {
-    //       setUser(user)
-		// 			navigate(`/`)
-		// 		})
-		// 	} else {
-		// 		res.json().then(obj => setErrors(obj.error))
-		// 	}
-		// }
+		.then(res => 
+      {
+			if(res.ok) {
+				res.json().then(user => {
+          setUser(user)
+					navigate(`/`)
+				})
+			} else {
+				res.json().then(obj => setErrors(obj.error))
+			}
+		}
     )
 	}
 
