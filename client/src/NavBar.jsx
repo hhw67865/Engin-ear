@@ -1,6 +1,6 @@
 import {NavLink} from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
-import logo_image from './logo-e.png';
+import logo_image from './Engine-Ear-Final-2.png';
 
 function NavBar({user, setUser}) {
 

@@ -9,6 +9,7 @@ import Profile from './Profile';
 
 function App() {
 
+  const [allUsers, setAllUsers] = useState([])
 	const [user, setUser] = useState(null)
 	const [errors, setErrors] = useState(false)
   const [posts, setPosts] = useState([])
@@ -31,20 +32,15 @@ function App() {
     fetch("/posts")
     .then(r=>r.json())
     .then(setPosts)
+
+    fetch("/users")
+    .then(r=>r.json())
+    .then(setAllUsers)
   }, [user])
 
-  // const fetchPosts = () => {
-  //   fetch("/posts")
-  //   .then(res => {
-  //     if(res.ok){
-  //       res.json()
-  //       .then(setPosts)
-  //     } else {
-  //       res.json()
-  //       .then(data => setErrors(data.errors))
-  //     }
-  //   })
-  // }
+
+
+
 
   if (errors) return <h1>{errors}</h1>
 
@@ -54,7 +50,7 @@ function App() {
 			<Routes>
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/signup" element={<Signup />} />
-				<Route path="/profile" element={<Profile setUser={setUser} user={user} />} />
+        {user?<Route path="/profile" element={<Profile setUser={setUser} user={user} />} />:null}
 				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts}/>} setUser={setUser} />
 			</Routes>
 		</div>

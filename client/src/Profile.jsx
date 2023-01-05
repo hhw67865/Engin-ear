@@ -73,9 +73,17 @@ function Profile({user, setUser}) {
           setErrors(obj.errors)
         })
       }
-    })
-    
+    })    
+  }
 
+  function handleDelete() {
+    fetch(`users/${user.id}`, {
+      method: "DELETE"
+    })
+    .then(()=>{
+      setUser(null)
+      navigate('/login')
+    })
   }
   
   return (
@@ -149,8 +157,10 @@ function Profile({user, setUser}) {
 							onChange={handleChange}
 						/>
             <br />
+            {errors ? errors.map((e,i)=><p key={i}>{e}</p>):null}
             <br />
             <input id='button-update-form' type='submit' value='Update Profile!' />
+            
         </form></div> : null }
       <div id="profile-card-div">
         <h1>{user.name}</h1>
@@ -165,6 +175,7 @@ function Profile({user, setUser}) {
         <p># posts</p>
         <p>{user.follower_count} followers</p>
         <p>{user.following_count} following</p>
+        <button onClick={handleDelete}>DELETE ACCOUNT</button>
       </div>
     </div>
     
