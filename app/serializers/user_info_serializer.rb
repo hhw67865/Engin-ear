@@ -1,6 +1,6 @@
 class UserInfoSerializer < ActiveModel::Serializer
   
-  attributes :id, :name, :pronouns, :email, :password_digest, :job_title, :employer, :open_to_work?, :profile_picture
+  attributes :id, :name, :pronouns, :email, :password_digest, :job_title, :employer, :open_to_work?, :profile_picture, :location
   has_many :professional_links
   has_many :posts
   has_many :comments

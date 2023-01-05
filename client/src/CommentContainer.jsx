@@ -1,6 +1,10 @@
 import CommentCard from "./CommentCard"
 
-const CommentContainer = () => {
+const CommentContainer = ({comments, user}) => {
+  
+  const commentsArray = comments.map((comment,i)=><CommentCard key={i} comment={comment} user={user}/>)
+
+
   return (
     <div className="commentContainer">
         <form id="comment_creation">
@@ -10,7 +14,7 @@ const CommentContainer = () => {
             <input type="submit" value="Post"/>
         </form>
         <div className="comment_feed">
-            {/* array of CommentCard */}
+            {commentsArray}
         </div>
     </div>
   );

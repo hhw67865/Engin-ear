@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 
-
 function Signup () {
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
@@ -12,16 +11,18 @@ function Signup () {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-	let newSignup = {
-		name: name,
-		email: email,
-		password: password
-	}
-	fetch("/signup", {
-		method: 'POST',
-		headers: {'Content-Type' : 'application/json'},
-		body: JSON.stringify(newSignup)
-	})
+
+		let newSignup = {
+			name: name,
+			email: email,
+			password: password
+		}
+
+		fetch("/signup", {
+			method: 'POST',
+			headers: {'Content-Type' : 'application/json'},
+			body: JSON.stringify(newSignup)
+		})
 		.then((r) => {
 			if (r.ok) {
 				navigate('/login')
@@ -34,37 +35,38 @@ function Signup () {
 		})
 	}
 
-
 	return (
-		<div>
+		<div className="center-text">
 			<h1>Signup!</h1>
-			<form onSubmit = {handleSubmit}>
-				<h3>Name:</h3>
+			<form onSubmit={handleSubmit}>
+				<h3 className="label">Name:</h3>
 					<input
 						type="text" 
 						name="name" 
-						placeholder="User Name"
+						// placeholder="First & Last Name"
 						value={name} 
 						onChange={(e) => setName(e.target.value)}
 					/>
-				<h3>Email:</h3>
+				<h3 className="label">E-mail:</h3>
 					<input  
 						type="text" 
 						name="email" 
-						placeholder="User Email"
+						// placeholder="E-mail Address"
 						value={email} 
 						onChange={(e) => setEmail(e.target.value)}
 					/>
-				<h3>Password:</h3>
+				<h3 className="label">Password:</h3>
 					<input  
 						type="password" 
 						name="password" 
-						placeholder="Password"
+						// placeholder="Password"
 						value={password} 
 						onChange={(e) => setPassword(e.target.value)}
 					/>
-				{errors ? errors.map((error)=><p>{error}</p>) : null}
-				<button type="submit">Submit!</button>
+					<br />
+				{errors ? errors.map((error, i)=><p key={i} >{error}</p>) : null}
+        <br />
+				<input className='button-submit-form' type="submit" value="Submit!" />
 			</form>
 		</div>
 	);

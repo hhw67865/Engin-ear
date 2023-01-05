@@ -3,9 +3,14 @@ Rails.application.routes.draw do
   resources :post_tags, only: [:create, :destroy]
   resources :tags, only: [:index, :show]
   resources :comments, only: [:index, :create, :update, :destroy]
-  resources :posts
+  resources :posts do
+    resources :comments, only: :index
+  end
   resources :professional_links, only: [:create, :update, :destroy]
   resources :users
+
+  
+ 
 
   delete 'follows/delete', to: 'follows#destroy'
 

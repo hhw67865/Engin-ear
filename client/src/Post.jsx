@@ -1,23 +1,42 @@
 import CommentContainer from "./CommentContainer"
+import {useState} from "react"
 
-const Post = () => {
+const Post = ({post,user}) => {
+
+
+  
+  const [comments, setComments] = useState([])
+  const [hideComments, setHideComments] = useState(true)
+
+
+  function showComments () {
+    fetch(`/posts/${post.id}/comments`)
+    .then(r=>r.json())
+    .then(obj => {
+      setComments(obj)
+    })
+    .then(()=>setHideComments(false))
+    
+  }
+
   return (
     <div className="postCard">
         <div className="user">
-            <img className="profilePicture" src="" alt=""/>
-            <h2> Name </h2>
-            <p> follower number </p>
-            <p> description or title </p>
+            <img className="profilePicture" src={post.user.profile_picture} alt={post.user.name}/>
+            <h2> {post.user.name} </h2>
+            <p> {post.user.follower_count} followers </p>
+            <p> {post.title} </p>
         </div>
         <div className="post">
-            <p> post </p>
-            <img className="postPicture" src="" alt=""/>
+            <p> {post.post_body} </p>
+            <img className="postPicture" src={post.picture_url} alt={post.title}/>
         </div>
         <div className="footer">
             {/* likes */}
-            <p> number of comments clickable </p>
+            <p onClick={showComments}> {post.comments.length} Comments </p>
         </div>
-        <CommentContainer/>
+        {hideComments ? null: <CommentContainer comments={comments} user={user}/> }
+        
         
 
     </div>

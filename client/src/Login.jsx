@@ -21,8 +21,6 @@ function Login({setUser}) {
       password
     }
 
-    //console.log(user) : this worked
-
 		fetch (`/login`, {
 			method: 'POST',
 			headers: {
@@ -55,11 +53,10 @@ function Login({setUser}) {
   }
 
   return (
-    <div>
-      <h1>Login here!</h1>
+    <div className="center-text">
+      <h1>Login!</h1>
       <form id='login' className="form-container" onSubmit={onSubmit}>
-        <br /> 
-        <label htmlFor="email"> Email:
+        <h3 className="label">E-mail:</h3>
         <input 
           className="form-inputs" 
           type="text" 
@@ -67,9 +64,7 @@ function Login({setUser}) {
           value={email}
           onChange={handleChange} 
         />
-        </label>
-        <br /> 
-        <label htmlFor="password"> Password:
+        <h3 className="label">Password:</h3>
         <input 
           className="form-inputs" 
           type="password" 
@@ -77,11 +72,11 @@ function Login({setUser}) {
           value={password}
           onChange={handleChange} 
         />
-        </label>
-        <br /> 
+        <br />
+        {errors ? <div>{errors}</div> : null}
+        <br />
         <input className='button-submit-form' type="submit" value="Login!" />
       </form>
-      {errors ? <div>{errors}</div> : null}
     </div>
   )
 }
