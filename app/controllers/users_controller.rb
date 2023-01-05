@@ -22,9 +22,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find(session[:user_id])
+    user = User.find_by(id: session[:user_id])
     user.update!(user_params)
-    render json: user, status: :accepted
+    render json: user,serializer: UserInfoSerializer, status: :accepted
   end
 
   def destroy

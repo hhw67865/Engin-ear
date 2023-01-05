@@ -31,7 +31,7 @@ function App() {
     fetch("/posts")
     .then(r=>r.json())
     .then(setPosts)
-  }, [])
+  }, [user])
 
   // const fetchPosts = () => {
   //   fetch("/posts")
@@ -55,7 +55,7 @@ function App() {
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/profile" element={<Profile setUser={setUser} user={user} />} />
-				<Route path="/" element={<Home user={user} posts={posts}/>} setUser={setUser} />
+				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts}/>} setUser={setUser} />
 			</Routes>
 		</div>
 	)

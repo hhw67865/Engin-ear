@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authorize, only: [:index]
 
   def index
-    render json: Post.all, status: :ok
+    render json: Post.all.order(created_at: :desc), status: :ok
   end
   
   def show
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:title, :post_body, :user_id)
+    params.permit(:title, :post_body, :user_id, :picture_url)
   end
 
 end

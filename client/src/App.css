@@ -51,7 +51,7 @@ nav a:hover {
 #logout-button {
   width: 120px;
   height: 40px;
-  background-color: #f8c9c1;
+  background-color: #f0d290;
   border: 1px black solid;
   font-size: .9em;
   font-weight: bold;
@@ -110,9 +110,84 @@ input {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
+/* COMMENT & POST Profile Pics */
+
 .commentProfilePicture {
   width: 50px
 }
 .profilePicture {
   width: 50px
 }
+
+/* USER PROFILE PAGE */
+
+.profile {
+  text-align:center;
+  justify-content: center;
+  width: 600px;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+#profile-card-div {
+  background-color: rgba(255, 255, 255, 0.772);
+  border-radius: 5%;
+  padding-top: .1em;
+  padding-bottom: .1em;
+  margin-top: 1.4em;
+}
+
+#profile-picture {
+  justify-self: center;
+  object-fit: contain;
+  height:100%;
+  max-height:300px;
+  width:100%;
+  max-width:300px;
+  border-radius: 50%;
+}
+
+#profile-form-div {
+  border: 2px solid black;
+  margin-top: 1.5rem;
+  padding-bottom: 30px;
+}
+
+#button-update-form {
+  width: 180px;
+  height: 40px;
+  background-color: #f8c9c1;
+  border: 1px black solid;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 1.5rem 0rem 0rem 0.3rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#button-update-form:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#update-profile-toggle {
+  width: 200px;
+  height: 40px;
+  background-color: #f8c9c1;
+  border: 1px black solid;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 1.5rem 0rem 0rem 0.3rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+} 
+
+#update-profile-toggle:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+

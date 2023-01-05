@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users
 
   
- 
+  
 
   delete 'follows/delete', to: 'follows#destroy'
 
