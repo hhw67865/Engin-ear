@@ -3,8 +3,6 @@ import {useState, useEffect} from "react"
 
 const Post = ({post,user}) => {
 
-
-  
   const [comments, setComments] = useState([])
   const [hideComments, setHideComments] = useState(true)
   const [noUser, setNoUser] = useState(false)
@@ -37,11 +35,10 @@ const Post = ({post,user}) => {
         <div className="user-post-header-1">
           <div>
             <img className="profilePicture" src={post.user.profile_picture} alt={post.user.name}/>
-
           </div>
           <div id="flex-wrap">
             <div>
-              <h3> {post.user.name} </h3>
+              <h2> {post.user.name} </h2>
             </div>
             <div>
               <h5>{post.user.job_title}</h5>
@@ -53,30 +50,19 @@ const Post = ({post,user}) => {
               <h5>posted {post.created_at_ago}</h5>
             </div>
           </div>
-
- 
-            <p>Tags:</p>
-            {tagsArray}
-
-
         </div>
-        
-
-        
-      
         <div className="post">
-            <h3> {post.title} </h3>
+            <h3 id="post-title"> {post.title} </h3>
             <p> {post.post_body} </p>
-            {post.picture_url ? <img className="postPicture" src={post.picture_url} alt={post.title}/> : null}
+            {post.picture_url ? <div className="postPictureDiv"><img className="postPicture" src={post.picture_url} alt={post.title}/></div> : null}
         </div>
         <div className="footer">
             {/* likes */}
-            <p onClick={showComments}> {comments.length} Comments </p>
+            <p>Tags:{tagsArray}</p>
+            <p id="show-comments" onClick={showComments}> {comments.length === 0 ? 'Add Comment': `View ${comments.length} Comments` }</p>
+            {hideComments ? null: <CommentContainer comments={comments} user={user} post={post} setComments={setComments}/> }
         </div>
-        {hideComments ? null: <CommentContainer comments={comments} user={user} post={post} setComments={setComments}/> }
         {noUser?<p>Please Login To See Comments!</p>:null}
-        
-
     </div>
   );
 }

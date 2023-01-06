@@ -37,11 +37,11 @@ nav {
 nav a {
   text-decoration: none;
   color: black;
-  
+
 }
 
 nav a:hover {
-  background-color: #f8c9c1
+  background-color: #e0c7f0
 }
 
 #logo {
@@ -95,7 +95,7 @@ input {
 .button-submit-form {
   width: 130px;
   height: 40px;
-  background-color: #f8c9c1;
+  background-color: #e7d8f1;
   border: 1px black solid;
   font-size: 1.25em;
   font-weight: bold;
@@ -118,6 +118,7 @@ input {
   border-radius: 50%;
   padding: 2em 2em 2em 2em;
 }
+
 .profilePicture {
   width: 100px;
   height: 100px;
@@ -128,7 +129,7 @@ input {
 /* USER PROFILE PAGE */
 
 .profile {
-  text-align:center;
+  text-align: center;
   justify-content: center;
   width: 600px;
   margin: auto;
@@ -146,10 +147,10 @@ input {
 #profile-picture {
   justify-self: center;
   object-fit: contain;
-  height:100%;
-  max-height:300px;
-  width:100%;
-  max-width:300px;
+  height: 100%;
+  max-height: 300px;
+  width: 100%;
+  max-width: 300px;
   border-radius: 50%;
 }
 
@@ -162,7 +163,7 @@ input {
 #button-update-form {
   width: 180px;
   height: 40px;
-  background-color: #f8c9c1;
+  background-color: #e7d8f1;
   border: 1px black solid;
   font-size: 1.25em;
   font-weight: bold;
@@ -181,7 +182,7 @@ input {
 #update-profile-toggle {
   width: 200px;
   height: 40px;
-  background-color: #f8c9c1;
+  background-color: #e7d8f1;
   border: 1px black solid;
   font-size: 1.25em;
   font-weight: bold;
@@ -189,7 +190,7 @@ input {
   border-radius: 4px;
   cursor: pointer;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-} 
+}
 
 #update-profile-toggle:hover {
   color: white;
@@ -200,8 +201,6 @@ input {
 /* HOME PAGE */
 
 #filter-by-follow {
-  /* text-align: left;
-  justify-content: left; */
   display: block;
   padding-left: 15px;
   text-indent: -15px;
@@ -209,8 +208,6 @@ input {
 }
 
 #filter-checkbox {
-  /* padding-left: 10em; */
-  /* float: left; */
   width: 15px;
   height: 15px;
   padding: 0;
@@ -218,6 +215,12 @@ input {
   vertical-align: bottom;
   position: relative;
   top: -1px;
+}
+
+/* CREATE POST */
+
+#post_body {
+  width: 104%
 }
 
 #post-creation-div {
@@ -230,7 +233,7 @@ input {
   margin: auto;
   margin-bottom: 30px;
   border-radius: 3%;
-  /* width: 50%; */
+  background-color: #e7d8f1;
 }
 
 #post-tag-dropdown {
@@ -245,33 +248,53 @@ input {
   width: 11%
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
+#submit-new-post {
+  width: 120px;
+  height: 40px;
+  background-color: #f0d290;
+  border: 1px black solid;
+  /* font-size: .9em; */
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#submit-new-post:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* POST CARDS */
 
 .postCard {
   width: 600px;
-  margin-bottom: 30px;
+  height: 400px;
   border: 2px solid black;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 30px;
+  border-radius: 3%;
+  padding-top: 0px;
+  background-color: rgba(255, 255, 255, 0.772);
+  overflow: scroll;
+  max-height: 60rem;
 }
-
-/* .detail1 {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5px;
-} */
 
 .user-post-header-1 {
   display: flex;
-  /* padding: 0px; */
-  /* flex-wrap: wrap; */
-  /* width: 800px; */
+  margin-bottom: 0px;
 }
 
 #flex-wrap {
-  /* display: flex;     */
   flex-direction: column;
-  /* flex-wrap: wrap;
-  width: 100px; */
-  
+  margin-bottom: 0px;
 }
 
 #flex-wrap h5 {
@@ -280,9 +303,82 @@ input {
   margin-bottom: 0px;
 }
 
-#flex-wrap h3 {
+#flex-wrap h2 {
   padding: 0px;
   margin-top: 35px;
   margin-bottom: 10px;
 }
 
+.post {
+  margin-left: 25px;
+  margin-top: 0px;
+}
+
+.postPictureDiv {
+  display: flex;
+  justify-content: center;
+  margin-right: 25px;
+}
+
+.postPicture {
+  max-width: 500px;
+}
+
+.footer {
+  margin-left: 25px;
+}
+
+#show-comments {
+  border: 1px solid black;
+  width: 140px;
+  padding: 6px;
+  text-align: center;
+  background-color: #f0d290;
+  border-radius: 4px;
+}
+
+#comment_creation {
+  margin-left: 0px;
+}
+
+#submit-comment-button {
+  text-align: center;
+  width: 100px;
+  height: 35px;
+  background-color: #e7d8f1;
+  border: 1px black solid;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 1rem 0rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#submit-comment-button:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* COMMENT CARD */
+
+.commentCard {
+  flex-direction: column;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 550px;
+}
+
+/* .comment {
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+} */
+
+.commentProfilePicture {
+  flex-direction: column;
+  margin-bottom: 0px;
+}

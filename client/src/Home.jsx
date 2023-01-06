@@ -84,7 +84,7 @@ function Home({user, posts, setPosts, tags}) {
 
       {user ?
       <div id="post-creation-div">
-        <h3>Create a Post!</h3>
+        <h2>Create a Post!</h2>
         <form id="post-creation-form" onSubmit={createPost}>
           <label htmlFor="title">Title</label> <br/>
           <input type="text" name="title" value={formData.title} onChange={postChange}/><br/>
@@ -100,7 +100,7 @@ function Home({user, posts, setPosts, tags}) {
           </select>
           <textarea id="post_body" name="post_body" rows="4" cols="50" placeholder="What's on your mind?" value={formData.post_body} onChange={postChange}>
           </textarea>
-          <input type="submit" value="Post"/>
+          <input id="submit-new-post" type="submit" value="Post!"/>
         </form>
         {errors ? errors.map((e,i)=><p key={i}>{e}</p>):null}
       </div> :
