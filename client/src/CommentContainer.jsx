@@ -7,7 +7,7 @@ const CommentContainer = ({comments, user, post, setComments}) => {
   const [errors, setErrors] = useState(null)
   
   const commentsArray = comments.map((comment,i)=>
-  <CommentCard key={i} comment={comment} user={user} setComments={setComments}/>)
+  <CommentCard key={i} comment={comment} user={user} setComments={setComments} />)
 
   function handleText (e) {
     setTextArea(e.target.value)

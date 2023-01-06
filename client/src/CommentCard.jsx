@@ -1,8 +1,7 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 const CommentCard = ({comment, user, setComments}) => {
-
-  
 
   function deleteComment () {
     fetch(`/comments/${comment.id}`,{
@@ -14,10 +13,15 @@ const CommentCard = ({comment, user, setComments}) => {
     })
   }
 
+  let navigate = useNavigate();
   
+  function goToCommenterProfile () {
+    navigate(`profile/${comment.user.id}`)
+  }
+
   return (
     <div className="commentCard">
-      <div className="user-post-header-1">
+      <div className="user-post-header-1" onClick={goToCommenterProfile}>
         <div>
           <img className="commentProfilePicture" src={comment.user.profile_picture} alt={comment.user.name}/>
         </div>
@@ -32,7 +36,7 @@ const CommentCard = ({comment, user, setComments}) => {
             <p>commented {comment.created_at_ago}</p>
           </div>
           <div>
-            {user.id === comment.user.id ? <button onClick={deleteComment}>Delete Comment</button>: null}
+            {user.id === comment.user.id ? <button id="delete-comment-button" onClick={deleteComment}>Delete Comment</button>: null}
           </div>
         </div>
       </div>
