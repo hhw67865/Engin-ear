@@ -26,7 +26,7 @@ function Home({user, posts, setPosts, tags}) {
   
   function createPost (e) {
     e.preventDefault()
-    if (tagData===tagData2) {
+    if (tagData===tagData2 && tagData!="") {
       setErrors(["Cannot use two of the same tags"])
       return
     }

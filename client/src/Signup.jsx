@@ -14,7 +14,7 @@ function Signup () {
 
 		let newSignup = {
 			name: name,
-			email: email,
+			email: email.toLowerCase(),
 			password: password
 		}
 
