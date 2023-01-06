@@ -1,7 +1,7 @@
 import SearchedCard from "./SearchedCard";
 import {useState, useEffect} from 'react'
 
-const Search = ({user}) => {
+const Search = ({user, setUpdate, update}) => {
 
     const [allUsers, setAllUsers] = useState([])
     const [search, setSearch] = useState("")
@@ -18,7 +18,7 @@ const Search = ({user}) => {
         }
         return user.name.toLowerCase().includes(search.toLowerCase())
     })
-    const usersArray = filteredUsers.map((u)=><SearchedCard key={u.id} u={u}/>)
+    const usersArray = filteredUsers.map((u)=><SearchedCard key={u.id} setUpdate={setUpdate} update={update} u={u}/>)
 
   return (
     <div className="profile" id="profile-card-div" style={{minHeight: "300px"}}>

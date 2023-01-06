@@ -40,7 +40,7 @@ const Post = ({post,user}) => {
     <div className="postCard">
         <div className="user-post-header-1" onClick={goToProfile} style={{cursor:"pointer"}}>
           <div>
-            <img className="profilePicture" src={post.user.profile_picture} alt={post.user.name}/>
+            <img className="profilePicture" src={post.user.profile_picture? post.user.profile_picture :"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={post.user.name}/>
           </div>
           <div id="flex-wrap">
             <div>

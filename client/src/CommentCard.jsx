@@ -23,7 +23,7 @@ const CommentCard = ({comment, user, setComments}) => {
     <div className="commentCard">
       <div className="user-post-header-1" onClick={goToCommenterProfile}>
         <div>
-          <img className="commentProfilePicture" src={comment.user.profile_picture} alt={comment.user.name}/>
+          <img className="commentProfilePicture" src={comment.user.profile_picture? comment.user.profile_picture :"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={comment.user.name}/>
         </div>
         <div id="flex-wrap">
           <div>

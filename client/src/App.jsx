@@ -58,10 +58,10 @@ function App() {
 
         
 
-        {user?<Route path="/profile/:id" element={<Profile setUser={setUser} user={user} />} />: <Route path="/profile/:id" element={<div className="alert">
+        {user?<Route path="/profile/:id" element={<Profile setUpdate={setUpdate} update={update} setUser={setUser} user={user} />} />: <Route path="/profile/:id" element={<div className="alert">
           Please login or signup to see user profiles.</div>} />}
 
-        <Route path="/search" element={<Search user={user}/>}/>
+        <Route path="/search" element={<Search setUpdate={setUpdate} update={update} user={user}/>}/>
 				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts} tags={tags}/>} setUser={setUser} />
 			</Routes>
 		</div>
