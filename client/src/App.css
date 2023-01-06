@@ -134,7 +134,7 @@ input {
   width: 600px;
   margin: auto;
   padding-bottom: 50px;
-  
+
 }
 
 #profile-card-div {
@@ -390,8 +390,8 @@ input {
   flex-wrap: wrap;
   gap: 5%;
   justify-content: center;
-  
-  
+
+
 }
 
 .searchedCard {
