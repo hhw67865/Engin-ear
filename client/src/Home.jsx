@@ -43,21 +43,27 @@ function Home({user, posts, setPosts}) {
 
   return (
     <div>
-      <select name="filter">
+      <select name="filter" id="post-tag-dropdown">
         <option value="job posts">Job Posts</option>
         <option value="inspiration">Inspiration</option>
         <option value="mood swings">Mood Swings</option>
         <option value="blogs">Blogs</option>
         <option value="projects">Projects</option>
       </select>
-      <input type="checkbox" name="follow_filter" value="follow"/>
-      {user ? <><label htmlFor="follow_filter">Only show people I follow</label><br/></> : null}
-
+      < br />
+      {user ? 
+        <div>
+            <label id="filter-by-follow" htmlFor="follow_filter">
+              <input id="filter-checkbox" type="checkbox" name="follow_filter" value="follow"/>
+            Only show people I follow</label>
+            <br/> 
+        </div> 
+      : null}
 
       {user ?
-      <div>
+      <div id="post-creation-div">
         <h3>Create a Post!</h3>
-        <form id="post_creation" onSubmit={createPost}>
+        <form id="post-creation-form" onSubmit={createPost}>
           <label htmlFor="title">Title</label> <br/>
           <input type="text" name="title" value={formData.title} onChange={postChange}/><br/>
           <label htmlFor="picture">Picture Url</label><br/>
