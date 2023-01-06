@@ -1,7 +1,10 @@
 import {useState} from 'react'
+import SearchedCard from './SearchedCard'
 
-const DifferentUserPage = ({diffUser, user}) => {
+const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
 
+  const [follower, setFollower] = useState(false)
+  const [following, setFollowing] = useState(false)
   const [follow, setFollow] = useState(diffUser.followers.filter((follower)=>follower.id===user.id).length>0)
   const proLinks = diffUser.professional_links.map((eachLinkObj,i) => {
     return (
@@ -22,6 +25,7 @@ const DifferentUserPage = ({diffUser, user}) => {
       .then(r=>{
         if (r.ok) {
           setFollow(false)
+          setUpdate(!update)
         }
       })
     }
@@ -34,6 +38,7 @@ const DifferentUserPage = ({diffUser, user}) => {
       .then(r=>{
         if (r.ok) {
           setFollow(true)
+          setUpdate(!update)
         }
       })
     }
@@ -54,9 +59,17 @@ const DifferentUserPage = ({diffUser, user}) => {
           <h3>{diffUser.location}</h3>
           {proLinks}
           <a href={`mailto:${diffUser.email}`}>E-mail</a>
+
           <p>{diffUser.posts.length} posts</p>
-          <p>{diffUser.follower_count} followers</p>
-          <p>{diffUser.following_count} following</p>
+          <p style={{cursor:"pointer"}} onClick={()=>setFollower(!follower)}>{diffUser.follower_count} followers</p>
+          {follower?<div className="follow-container">
+          {diffUser.followers.map((follower,i)=><SearchedCard key={i} update={update} setUpdate={setUpdate} u={follower}/>)}
+          </div>: null}
+          <p style={{cursor:"pointer"}} onClick={()=>setFollowing(!following)}>{diffUser.following_count} following</p>
+          {following?<div className="follow-container">
+          {diffUser.following.map((followed,i)=><SearchedCard key={i} update={update} setUpdate={setUpdate} u={followed}/>)}
+          </div>: null}
+
         </div>
     </div>
   );

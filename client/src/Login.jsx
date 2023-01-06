@@ -17,7 +17,7 @@ function Login({setUser}) {
     e.preventDefault()
 
     const user = {
-      email, 
+      email: email.toLowerCase(), 
       password
     }
 

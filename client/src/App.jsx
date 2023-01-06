@@ -14,6 +14,7 @@ function App() {
 	const [user, setUser] = useState(null)
 	const [errors, setErrors] = useState(false)
   const [posts, setPosts] = useState([])
+  const [update, setUpdate] = useState(true)
   
   useEffect(() => {
     fetch("/authorized")
@@ -26,7 +27,7 @@ function App() {
       })
       }
     })
-  },[])
+  },[update])
 
   useEffect(()=>{
     fetch("/tags")
@@ -54,8 +55,12 @@ function App() {
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/signup" element={<Signup />} />
         
+
+        
+
         {user?<Route path="/profile/:id" element={<Profile setUser={setUser} user={user} />} />: <Route path="/profile/:id" element={<div className="alert">
           Please login or signup to see user profiles.</div>} />}
+
         <Route path="/search" element={<Search user={user}/>}/>
 				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts} tags={tags}/>} setUser={setUser} />
 			</Routes>

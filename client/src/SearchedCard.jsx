@@ -1,10 +1,12 @@
 import {useNavigate} from 'react-router-dom'
 
-const SearchedCard = ({u}) => {
+const SearchedCard = ({u, setUpdate, update}) => {
     let navigate = useNavigate();
 
     function getProfile () {
+        setUpdate(!update)
         navigate(`/profile/${u.id}`)
+
     }
   return (
     <div className="searchedCard" style={{cursor:"pointer"}} onClick={getProfile}>

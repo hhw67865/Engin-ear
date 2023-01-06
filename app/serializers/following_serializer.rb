@@ -1,5 +1,5 @@
 class FollowingSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :profile_picture
 
 
   def id
@@ -8,6 +8,10 @@ class FollowingSerializer < ActiveModel::Serializer
 
   def name
     User.find(self.object.followed_id).name
+  end
+
+  def profile_picture
+    User.find(self.object.followed_id).profile_picture
   end
 
 end

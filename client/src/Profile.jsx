@@ -2,17 +2,20 @@ import {useState, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import DifferentUserPage from "./DifferentUserPage"
+import SearchedCard from "./SearchedCard"
 
-function Profile({user, setUser}) {
+function Profile({user, setUser, setUpdate, update}) {
 
   const { id } = useParams()
   const [differentUser, setDifferentUser] = useState(null)
+  const [follower, setFollower] = useState(false)
+  const [following, setFollowing] = useState(false)
 
   useEffect(()=>{
     fetch(`/users/${id}`)
     .then(r=>r.json())
     .then(setDifferentUser)
-  },[id])
+  },[update])
   
 
   let navigate = useNavigate();
@@ -185,9 +188,16 @@ function Profile({user, setUser}) {
         {proLinks}
         <a href={`mailto:${user.email}`}>E-mail</a>
         <p>{user.posts.length} posts</p>
-        <p>{user.follower_count} followers</p>
-        <p>{user.following_count} following</p>
+        <p style={{cursor:"pointer"}} onClick={()=>setFollower(!follower)}>{user.follower_count} followers</p>
+        {follower?<div className="follow-container">
+          {user.followers.map((follower,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={follower}/>)}
+        </div>: null}
+        <p style={{cursor:"pointer"}} onClick={()=>setFollowing(!following)}>{user.following_count} following</p>
+        {following?<div className="follow-container">
+          {user.following.map((followed,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={followed}/>)}
+        </div>: null}
         <button id="delete-account-button" onClick={handleDelete}>DELETE ACCOUNT</button>
+
       </div>
     </div>
     
@@ -196,7 +206,7 @@ function Profile({user, setUser}) {
 
     return (
       <>
-        {differentUser ? <DifferentUserPage diffUser={differentUser} user={user}/>: <h1>Loading up profile...</h1>}
+        {differentUser ? <DifferentUserPage update={update} setUpdate={setUpdate} diffUser={differentUser} user={user}/>: <h1>Loading up profile...</h1>}
       </>
     )
   } 
