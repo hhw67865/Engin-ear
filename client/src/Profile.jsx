@@ -177,7 +177,7 @@ function Profile({user, setUser}) {
       <div id="profile-card-div">
         <h1>{user.name}</h1>
         <h2>{`(${user.pronouns})`}</h2>
-        <img id="profile-picture" src={user.profile_picture} alt={`${user.name}`}/>
+        <img id="profile-picture" src={user.profile_picture?user.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${user.name}`}/>
         <h2>{user.job_title}</h2>
         {user.employer ? <p>Works at: {user.employer}</p> : null}
         {user[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
@@ -194,26 +194,10 @@ function Profile({user, setUser}) {
   )    }
   else {
 
-    
-
     return (
-    //   <div className="profile">
-    //     <div id="profile-card-div">
-    //       <h1>{user.name}</h1>
-    //       <h2>{`(${user.pronouns})`}</h2>
-    //       <img id="profile-picture" src={user.profile_picture} alt={`${user.name}`}/>
-    //       <h2>{user.job_title}</h2>
-    //       {user.employer ? <p>Works at: {user.employer}</p> : null}
-    //       {user[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
-    //       <h3>{user.location}</h3>
-    //       {proLinks}
-    //       <a href={`mailto:${user.email}`}>E-mail</a>
-    //       <p># posts</p>
-    //       <p>{user.follower_count} followers</p>
-    //       <p>{user.following_count} following</p>
-    //     </div>
-    // </div>
-    <h1>This is not your profile</h1>
+      <>
+        {differentUser ? <DifferentUserPage diffUser={differentUser} user={user}/>: <h1>Loading up profile...</h1>}
+      </>
     )
   } 
 }
