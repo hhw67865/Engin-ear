@@ -37,13 +37,7 @@ function Home({user, posts, setPosts, tags}) {
               headers: {"Content-Type": "application/json"},
               body: JSON.stringify({tag_id:tagData, post_id:newPost.id, emoji:emoji})
             })
-          }
-          
-          
-          
-          setPosts(prev=>[newPost,...prev])
-                  
-          
+          }          
         })
       }
       else {
@@ -51,6 +45,15 @@ function Home({user, posts, setPosts, tags}) {
           setErrors(obj.errors)
         })
       }
+      
+    })
+    .then(()=>{
+      fetch("/posts")
+      .then(r=>r.json())
+      .then((p)=>{
+        p[0].tags = [{id: tagData, name: tags[tagData-1].name}]
+        setPosts(p)
+      })
     })
   }
 
@@ -90,7 +93,7 @@ function Home({user, posts, setPosts, tags}) {
           <input type="text" name="emoji" placeholder="Give your tags an Emoji" value={emoji} onChange={(e)=>setEmoji(e.target.value)}/>
           <select name="filter" onChange={(e)=>{
             setTagData(e.target.value)
-            setTagName(e.target.name)
+            
             }}>
             <option name="" value=""> </option>
             {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
