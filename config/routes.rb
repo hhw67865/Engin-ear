@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :follows, only: [:create]
-  resources :post_tags, only: [:create, :destroy]
+  resources :post_tags, only: [:index, :create, :destroy]
   resources :tags, only: [:index, :show]
   resources :comments, only: [:index, :create, :update, :destroy]
   resources :posts do

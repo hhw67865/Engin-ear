@@ -29,6 +29,9 @@ const Post = ({post,user}) => {
     }
   }
 
+  const tagsArray = post.tags.map((e,i)=><span key={i}> #{e.name} </span>)
+  
+
   return (
     <div className="postCard">
         <div className="user">
@@ -36,6 +39,8 @@ const Post = ({post,user}) => {
             <h2> {post.user.name} </h2>
             <p> {post.user.follower_count} followers </p>
             <p>{post.created_at_ago}</p>
+            <p>Tags:</p>
+            {tagsArray}
             <p> {post.title} </p>
         </div>
         <div className="post">

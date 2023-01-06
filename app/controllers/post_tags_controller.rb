@@ -1,8 +1,9 @@
 class PostTagsController < ApplicationController
+  skip_before_action :authorize, only: [:index]
 
-  # def index
-  #   render json: PostTag.all, status: :ok
-  # end
+  def index
+    render json: PostTag.all, status: :ok
+  end
 
   def create
     post_tag = PostTag.create!(post_tag_params)
@@ -19,7 +20,7 @@ class PostTagsController < ApplicationController
   private
 
   def post_tag_params
-    params.permit(:post_id, :tag_id)
+    params.permit(:post_id, :tag_id,:emoji)
   end
 
 end

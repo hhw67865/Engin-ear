@@ -1,13 +1,18 @@
 import Post from "./Post"
-import {useEffect, useState} from "react"
 
-function Home({user, posts, setPosts}) {
+import {useState} from "react"
+
+function Home({user, posts, setPosts, tags}) {
   // :title, :post_body, :user_id, :picture_url
   const [formData, setFormData] = useState({
     title: "",
     picture_url: "",
     post_body: ""
   })
+
+  const [tagData, setTagData] = useState("")
+  const [tagName, setTagName] = useState("")
+  const [emoji, setEmoji] = useState("")
 
   const [errors, setErrors] = useState(null)
 
@@ -25,8 +30,20 @@ function Home({user, posts, setPosts}) {
     })
     .then(r=>{
       if (r.ok) {
-        r.json().then(newPost=>{
+        r.json().then(newPost=>{                 
+          if (tagData) {
+            fetch("/post_tags", {
+              method: "POST",
+              headers: {"Content-Type": "application/json"},
+              body: JSON.stringify({tag_id:tagData, post_id:newPost.id, emoji:emoji})
+            })
+          }
+          
+          
+          
           setPosts(prev=>[newPost,...prev])
+                  
+          
         })
       }
       else {
@@ -39,6 +56,7 @@ function Home({user, posts, setPosts}) {
 
 
   const postArray = posts.map((post,i)=><Post key={i} post={post} user={user}/>)
+  
 
 
   return (
@@ -47,6 +65,7 @@ function Home({user, posts, setPosts}) {
         <option value="job posts">Job Posts</option>
         <option value="inspiration">Inspiration</option>
         <option value="mood swings">Mood Swings</option>
+        <option value="memes">Memes</option>
         <option value="blogs">Blogs</option>
         <option value="projects">Projects</option>
       </select>
@@ -62,6 +81,14 @@ function Home({user, posts, setPosts}) {
           <input type="text" name="title" value={formData.title} onChange={postChange}/><br/>
           <label htmlFor="picture">Picture Url</label><br/>
           <input type="text" name="picture_url" value={formData.picture_url} onChange={postChange}/>
+          <input type="text" name="emoji" placeholder="Give your tags an Emoji" value={emoji} onChange={(e)=>setEmoji(e.target.value)}/>
+          <select name="filter" onChange={(e)=>{
+            setTagData(e.target.value)
+            setTagName(e.target.name)
+            }}>
+            <option name="" value=""> </option>
+            {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
+          </select>
           <textarea id="post_body" name="post_body" rows="4" cols="50" placeholder="What's on your mind?" value={formData.post_body} onChange={postChange}>
           </textarea>
           <input type="submit" value="Post"/>

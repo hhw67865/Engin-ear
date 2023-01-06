@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_23_170942) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_211334) do
   create_table "comments", force: :cascade do |t|
     t.text "comment_body"
     t.integer "post_id", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_170942) do
     t.integer "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "emoji"
     t.index ["post_id"], name: "index_post_tags_on_post_id"
     t.index ["tag_id"], name: "index_post_tags_on_tag_id"
   end
