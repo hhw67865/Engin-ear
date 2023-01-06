@@ -114,10 +114,15 @@ input {
 /* COMMENT & POST Profile Pics */
 
 .commentProfilePicture {
-  width: 50px
+  width: 50px;
+  border-radius: 50%;
+  padding: 2em 2em 2em 2em;
 }
 .profilePicture {
-  width: 50px
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 2em 2em 2em 2em;
 }
 
 /* USER PROFILE PAGE */
@@ -193,4 +198,91 @@ input {
 }
 
 /* HOME PAGE */
+
+#filter-by-follow {
+  /* text-align: left;
+  justify-content: left; */
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+  padding-top: 15px;
+}
+
+#filter-checkbox {
+  /* padding-left: 10em; */
+  /* float: left; */
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+}
+
+#post-creation-div {
+  text-align: center;
+  border: 2px solid black;
+  padding-bottom: 40px;
+  padding-top: 20px;
+  justify-content: center;
+  width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+  border-radius: 3%;
+  /* width: 50%; */
+}
+
+#post-tag-dropdown {
+  text-align: center;
+  background-color: #f0d290;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  outline: 0;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 15px;
+  width: 11%
+}
+
+
+
+.postCard {
+  width: 600px;
+  margin-bottom: 30px;
+  border: 2px solid black;
+}
+
+/* .detail1 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+} */
+
+.user-post-header-1 {
+  display: flex;
+  /* padding: 0px; */
+  /* flex-wrap: wrap; */
+  /* width: 800px; */
+}
+
+#flex-wrap {
+  /* display: flex;     */
+  flex-direction: column;
+  /* flex-wrap: wrap;
+  width: 100px; */
+  
+}
+
+#flex-wrap h5 {
+  padding: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#flex-wrap h3 {
+  padding: 0px;
+  margin-top: 35px;
+  margin-bottom: 10px;
+}
 

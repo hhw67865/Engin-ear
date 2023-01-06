@@ -34,18 +34,40 @@ const Post = ({post,user}) => {
 
   return (
     <div className="postCard">
-        <div className="user">
+        <div className="user-post-header-1">
+          <div>
             <img className="profilePicture" src={post.user.profile_picture} alt={post.user.name}/>
-            <h2> {post.user.name} </h2>
-            <p> {post.user.follower_count} followers </p>
-            <p>{post.created_at_ago}</p>
+
+          </div>
+          <div id="flex-wrap">
+            <div>
+              <h3> {post.user.name} </h3>
+            </div>
+            <div>
+              <h5>{post.user.job_title}</h5>
+            </div>
+            <div>
+              <h5> {post.user.follower_count} followers </h5>
+            </div>
+            <div>
+              <h5>posted {post.created_at_ago}</h5>
+            </div>
+          </div>
+
+ 
             <p>Tags:</p>
             {tagsArray}
-            <p> {post.title} </p>
+
+
         </div>
+        
+
+        
+      
         <div className="post">
+            <h3> {post.title} </h3>
             <p> {post.post_body} </p>
-            <img className="postPicture" src={post.picture_url} alt={post.title}/>
+            {post.picture_url ? <img className="postPicture" src={post.picture_url} alt={post.title}/> : null}
         </div>
         <div className="footer">
             {/* likes */}
