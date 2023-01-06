@@ -29,11 +29,15 @@ const Post = ({post,user}) => {
     }
   }
 
+  const tagsArray = post.tags.map((e,i)=><span key={i}> #{e.name} </span>)
+  
+
   return (
     <div className="postCard">
         <div className="user-post-header-1">
           <div>
             <img className="profilePicture" src={post.user.profile_picture} alt={post.user.name}/>
+
           </div>
           <div id="flex-wrap">
             <div>
@@ -49,6 +53,12 @@ const Post = ({post,user}) => {
               <h5>posted {post.created_at_ago}</h5>
             </div>
           </div>
+
+ 
+            <p>Tags:</p>
+            {tagsArray}
+
+
         </div>
         
 

@@ -9,7 +9,7 @@ import Profile from './Profile';
 
 function App() {
 
-  const [allUsers, setAllUsers] = useState([])
+  const [tags, setTags] = useState([])
 	const [user, setUser] = useState(null)
 	const [errors, setErrors] = useState(false)
   const [posts, setPosts] = useState([])
@@ -27,15 +27,17 @@ function App() {
     })
   },[])
 
+  useEffect(()=>{
+    fetch("/tags")
+    .then(r=>r.json())
+    .then(setTags)
+  },[])
+
 
   useEffect(()=>{
     fetch("/posts")
     .then(r=>r.json())
     .then(setPosts)
-
-    fetch("/users")
-    .then(r=>r.json())
-    .then(setAllUsers)
   }, [user])
 
 
@@ -51,7 +53,7 @@ function App() {
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/signup" element={<Signup />} />
         {user?<Route path="/profile" element={<Profile setUser={setUser} user={user} />} />:null}
-				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts}/>} setUser={setUser} />
+				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts} tags={tags}/>} setUser={setUser} />
 			</Routes>
 		</div>
 	)
