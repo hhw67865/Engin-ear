@@ -22,7 +22,7 @@ const Search = ({user}) => {
 
   return (
     <div className="profile" id="profile-card-div" style={{minHeight: "300px"}}>
-      <input style={{width: "80%"}} type="text" placeholder="Search.." value={search} onChange={(e)=>setSearch(e.target.value)}></input>
+      <input style={{width: "80%"}} type="text" placeholder="Search..." value={search} onChange={(e)=>setSearch(e.target.value)}></input>
       <div className="searchedProfileContainer">
         {usersArray}
       </div>

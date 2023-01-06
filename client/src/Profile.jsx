@@ -106,7 +106,7 @@ function Profile({user, setUser, setUpdate, update}) {
       <button id="update-profile-toggle" onClick={handleToggleUpdate}>{showUpdateProfile ? 'Hide Update View' : 'Update Profile'}</button>
       {showUpdateProfile ? 
       <div id="profile-form-div">
-        <form id="update-profile-form" onSubmit={handleUpdateSubmit}>
+        <form onSubmit={handleUpdateSubmit}>
           <h2>Name:</h2>
             <input
 							className='profile-form-inputs'
@@ -187,7 +187,7 @@ function Profile({user, setUser, setUpdate, update}) {
         <h3>{user.location}</h3>
         {proLinks}
         <a href={`mailto:${user.email}`}>E-mail</a>
-        <p># posts</p>
+        <p>{user.posts.length} posts</p>
         <p style={{cursor:"pointer"}} onClick={()=>setFollower(!follower)}>{user.follower_count} followers</p>
         {follower?<div className="follow-container">
           {user.followers.map((follower,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={follower}/>)}
@@ -196,7 +196,8 @@ function Profile({user, setUser, setUpdate, update}) {
         {following?<div className="follow-container">
           {user.following.map((followed,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={followed}/>)}
         </div>: null}
-        <button onClick={handleDelete}>DELETE ACCOUNT</button>
+        <button id="delete-account-button" onClick={handleDelete}>DELETE ACCOUNT</button>
+
       </div>
     </div>
     

@@ -66,7 +66,7 @@ const Post = ({post,user}) => {
             {/* likes */}
             <p>Tags:{tagsArray}</p>
             <p style={{cursor:"pointer"}} id="show-comments" onClick={showComments}> {comments.length === 0 ? 'Add Comment': `View ${comments.length} Comments` }</p>
-            {hideComments ? null: <CommentContainer comments={comments} user={user} post={post} setComments={setComments}/> }
+            {hideComments ? null: <CommentContainer comments={comments} user={user} post={post} setComments={setComments} /> }
         </div>
         {noUser?<p>Please Login To See Comments!</p>:null}
     </div>

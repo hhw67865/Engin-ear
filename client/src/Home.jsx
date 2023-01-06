@@ -97,9 +97,11 @@ function Home({user, posts, setPosts, tags}) {
   const postArray = filteredPosts.map((post,i)=><Post key={i} post={post} user={user}/>)
   
 
-
   return (
     <div>
+      < br />
+      <label id="filter-by-tag-label">Filter by Tag:</label>
+      < br />
       <select name="filter" id="post-tag-dropdown" value={filter} onChange={e=>setFilter(e.target.value)}>
         <option value=""></option>
         <option value="job posts">Job Posts</option>
@@ -123,31 +125,34 @@ function Home({user, posts, setPosts, tags}) {
       <div id="post-creation-div">
         <h2>Create a Post!</h2>
         <form id="post-creation-form" onSubmit={createPost}>
-          <label htmlFor="title">Title</label> <br/>
-          <input type="text" name="title" value={formData.title} onChange={postChange}/><br/>
-          <label htmlFor="picture">Picture Url</label><br/>
-          <input type="text" name="picture_url" value={formData.picture_url} onChange={postChange}/>
-          <input type="text" name="emoji" placeholder="Give your tags an Emoji" value={emoji} onChange={(e)=>setEmoji(e.target.value)}/>
-          <select name="filter" onChange={(e)=>{
+          <label style={{fontWeight: "bold"}} htmlFor="title">Title:</label> <br/>
+          <input className="create-post-inputs" type="text" name="title" value={formData.title} onChange={postChange}/><br/><br/>
+          <label style={{fontWeight: "bold"}} htmlFor="picture">Image URL:</label><br/>
+          <input className="create-post-inputs" type="text" name="picture_url" value={formData.picture_url} onChange={postChange}/><br/><br/>
+          <label style={{fontWeight: "bold"}} htmlFor="tag">Add a Post Tag:</label><br/>
+          <select id="create-post-selects" name="filter" onChange={(e)=>{
             setTagData(e.target.value)
-            
             }} value={tagData}>
             <option name="" value=""> </option>
             {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
-          </select>
-          <input type="text" name="emoji" placeholder="Give your tags an Emoji" value={emoji2} onChange={(e)=>setEmoji2(e.target.value)}/>
-          <select name="filter" onChange={(e)=>{
-            setTagData2(e.target.value)
-            
+          </select><br/><br/>
+          <label style={{fontWeight: "bold"}} htmlFor="emoji">Insert an Emoji for your Tag:</label><br/>
+          <input className="create-post-inputs" type="text" name="emoji" value={emoji} onChange={(e)=>setEmoji(e.target.value)}/><br/><br/>
+          <label style={{fontWeight: "bold"}} htmlFor="tag">Add Another Post Tag:</label><br/>
+          <select id="create-post-selects" name="filter" onChange={(e)=>{
+            setTagData2(e.target.value)        
             }} value={tagData2}>
             <option name="" value=""> </option>
             {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
-          </select>
+          </select><br/><br/>
+          <label style={{fontWeight: "bold"}} htmlFor="emoji">Insert an Emoji for your Tag:</label><br />
+          <input className="create-post-inputs" type="text" name="emoji" value={emoji2} onChange={(e)=>setEmoji2(e.target.value)}/>
+          <br/><br/>
           <textarea id="post_body" name="post_body" rows="4" cols="50" placeholder="What's on your mind?" value={formData.post_body} onChange={postChange}>
-          </textarea>
+          </textarea><br/>
           <input id="submit-new-post" type="submit" value="Post!"/>
         </form>
-        {errors ? errors.map((e,i)=><p style={{color:"red"}} key={i}>* {e} *</p>):null}
+        {errors ? errors.map((e,i)=><p style={{color:"#f44336"}} key={i}>* {e} *</p>):null}
       </div> :
       <div>
       <h1> Login to create a post! </h1>
