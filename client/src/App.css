@@ -22,7 +22,8 @@ nav {
   font-size: 1.8em;
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.772);
-  /* border-radius: 10%; */
+  border-radius: 5px;
+  /* padding-left: 2%; */
   /* width: 90%; */
 }
 
@@ -53,11 +54,11 @@ nav a:hover {
 #logout-button {
   width: 120px;
   height: 40px;
-  background-color: #f0d290;
+  background-color: #f0655b;
   border: 1px black solid;
   font-size: .9em;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -100,7 +101,7 @@ input {
   font-size: 1.25em;
   font-weight: bold;
   margin: 0rem 0rem 2rem;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -139,8 +140,8 @@ input {
 
 #profile-card-div {
   background-color: rgba(255, 255, 255, 0.772);
-  border-radius: 5%;
-  padding-top: .1em;
+  border-radius: 10px;
+  padding-top: 20px;
   padding-bottom: .1em;
   margin-top: 1.4em;
 }
@@ -159,6 +160,8 @@ input {
   border: 2px solid black;
   margin-top: 1.5rem;
   padding-bottom: 30px;
+  border-radius: 5px;
+  background-color: #f0d290;
 }
 
 #button-update-form {
@@ -169,7 +172,7 @@ input {
   font-size: 1.25em;
   font-weight: bold;
   margin: 1.5rem 0rem 0rem 0.3rem;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -188,12 +191,31 @@ input {
   font-size: 1.25em;
   font-weight: bold;
   margin: 1.5rem 0rem 0rem 0.3rem;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
 #update-profile-toggle:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#delete-account-button {
+  width: 170px;
+  height: 30px;
+  background-color: #f0655b;
+  border: 1px black solid;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0rem 0rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#delete-account-button:hover {
   color: white;
   border: 2px #000000 solid;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -209,10 +231,11 @@ input {
 }
 
 #filter-checkbox {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   margin: 0;
+  margin-right: 5px;
   vertical-align: bottom;
   position: relative;
   top: -1px;
@@ -221,7 +244,9 @@ input {
 /* CREATE POST */
 
 #post_body {
-  width: 104%
+  width: 100%;
+  font-size: 1.4em;
+  margin-bottom: 10px;
 }
 
 #post-creation-div {
@@ -233,8 +258,20 @@ input {
   width: 500px;
   margin: auto;
   margin-bottom: 30px;
-  border-radius: 3%;
+  border-radius: 5px;
   background-color: #e7d8f1;
+}
+
+.create-post-inputs {
+  font-size: 1.2em;
+  padding: 2px;
+  /* margin: 0px; */
+}
+
+#create-post-selects {
+  height: 30px;
+  width: 296px;
+  font-size: 1.2em;
 }
 
 #post-tag-dropdown {
@@ -245,7 +282,6 @@ input {
   outline: 0;
   cursor: pointer;
   overflow: hidden;
-  margin-top: 15px;
   width: 11%
 }
 
@@ -260,7 +296,7 @@ input {
   border: 1px black solid;
   /* font-size: .9em; */
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -281,7 +317,7 @@ input {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 30px;
-  border-radius: 3%;
+  border-radius: 10px;
   padding-top: 0px;
   background-color: rgba(255, 255, 255, 0.772);
   overflow: scroll;
@@ -322,7 +358,7 @@ input {
 }
 
 .postPicture {
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .footer {
@@ -335,7 +371,7 @@ input {
   padding: 6px;
   text-align: center;
   background-color: #f0d290;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 #comment_creation {
@@ -351,7 +387,7 @@ input {
   font-size: 1.2em;
   font-weight: bold;
   margin: 1rem 0rem 2rem;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
@@ -368,7 +404,7 @@ input {
   flex-direction: column;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   border: 1px solid black;
-  border-radius: 4px;
+  border-radius: 5px;
   margin-bottom: 15px;
   width: 550px;
 }
@@ -384,22 +420,75 @@ input {
   margin-bottom: 0px;
 }
 
+#comment_area {
+  width: 546px;
+  height: 50px;
+  font-size: 1.2em;
+}
+
 .searchedProfileContainer {
   margin: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 5%;
   justify-content: center;
-
-
+  border-radius: 10px;
 }
 
 .searchedCard {
   display: flex;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   border: 1px solid black;
-  border-radius: 4px;
+  border-radius: 5px;
   margin-bottom: 15px;
+  margin-top: 15px;
   min-width: 40%;
   align-items: center;
+  padding-right: 25px;
+}
+
+#delete-comment-button {
+  width: 140px;
+  height: 30px;
+  background-color: #f0655b;
+  border: 1px black solid;
+  font-size: 1em;
+  /* font-weight: bold; */
+  margin: 0rem 0rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#delete-comment-button:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+#follow-button {
+  width: 90px;
+  height: 30px;
+  background-color: #f0d290;
+  border: 1px black solid;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+#follow-button:hover {
+  color: white;
+  border: 2px #000000 solid;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }

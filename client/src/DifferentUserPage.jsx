@@ -40,12 +40,11 @@ const DifferentUserPage = ({diffUser, user}) => {
     
   }
 
-  
 
   return (
     <div className="profile">
         <div id="profile-card-div">
-          <button onClick={handleFollow}>{follow?"Unfollow":"Follow"}</button>
+          <button id="follow-button" onClick={handleFollow}>{follow?"Unfollow":"Follow"}</button>
           <h1>{diffUser.name}</h1>
           <h2>{`(${diffUser.pronouns})`}</h2>
           <img id="profile-picture" src={diffUser.profile_picture?diffUser.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${diffUser.name}`}/>
@@ -55,7 +54,7 @@ const DifferentUserPage = ({diffUser, user}) => {
           <h3>{diffUser.location}</h3>
           {proLinks}
           <a href={`mailto:${diffUser.email}`}>E-mail</a>
-          <p># posts</p>
+          <p>{diffUser.posts.length} posts</p>
           <p>{diffUser.follower_count} followers</p>
           <p>{diffUser.following_count} following</p>
         </div>
