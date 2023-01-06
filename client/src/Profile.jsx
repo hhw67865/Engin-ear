@@ -179,7 +179,7 @@ function Profile({user, setUser, setUpdate, update}) {
         </form></div> : null }
       <div id="profile-card-div">
         <h1>{user.name}</h1>
-        <h2>{`(${user.pronouns})`}</h2>
+        <h2>({user.pronouns})</h2>
         <img id="profile-picture" src={user.profile_picture?user.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${user.name}`}/>
         <h2>{user.job_title}</h2>
         {user.employer ? <p>Works at: {user.employer}</p> : null}
