@@ -1,11 +1,14 @@
 import CommentContainer from "./CommentContainer"
 import {useState, useEffect} from "react"
+import {useNavigate} from 'react-router-dom'
 
 const Post = ({post,user}) => {
 
   const [comments, setComments] = useState([])
   const [hideComments, setHideComments] = useState(true)
   const [noUser, setNoUser] = useState(false)
+
+  let navigate = useNavigate();
 
   useEffect(()=>{
     setComments(post.comments)
@@ -27,12 +30,15 @@ const Post = ({post,user}) => {
     }
   }
 
-  const tagsArray = post.tags.map((e,i)=><span key={i}> #{e.name} {post.emoji} </span>)
+  const tagsArray = post.post_tags.map((e,i)=><span key={i}> #{e.tag.name} {e.emoji} </span>)
   
+  function goToProfile () {
+    navigate(`profile/${post.user.id}`)
+  }
 
   return (
     <div className="postCard">
-        <div className="user-post-header-1">
+        <div className="user-post-header-1" onClick={goToProfile} style={{cursor:"pointer"}}>
           <div>
             <img className="profilePicture" src={post.user.profile_picture} alt={post.user.name}/>
           </div>
@@ -59,7 +65,7 @@ const Post = ({post,user}) => {
         <div className="footer">
             {/* likes */}
             <p>Tags:{tagsArray}</p>
-            <p id="show-comments" onClick={showComments}> {comments.length === 0 ? 'Add Comment': `View ${comments.length} Comments` }</p>
+            <p style={{cursor:"pointer"}} id="show-comments" onClick={showComments}> {comments.length === 0 ? 'Add Comment': `View ${comments.length} Comments` }</p>
             {hideComments ? null: <CommentContainer comments={comments} user={user} post={post} setComments={setComments}/> }
         </div>
         {noUser?<p>Please Login To See Comments!</p>:null}

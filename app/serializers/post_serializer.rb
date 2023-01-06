@@ -4,6 +4,7 @@ class PostSerializer < ActiveModel::Serializer
   has_one :user
   has_many :comments
   has_many :tags
+  has_many :post_tags, serializer: PostTagsOnPostSerializer
 
   def created_at_ago
     "#{time_ago_in_words(object.created_at)} ago"

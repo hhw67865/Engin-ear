@@ -134,6 +134,7 @@ input {
   width: 600px;
   margin: auto;
   padding-bottom: 50px;
+  
 }
 
 #profile-card-div {
@@ -381,4 +382,24 @@ input {
 .commentProfilePicture {
   flex-direction: column;
   margin-bottom: 0px;
+}
+
+.searchedProfileContainer {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  justify-content: center;
+  
+  
+}
+
+.searchedCard {
+  display: flex;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  min-width: 40%;
+  align-items: center;
 }

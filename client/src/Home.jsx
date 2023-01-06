@@ -10,11 +10,15 @@ function Home({user, posts, setPosts, tags}) {
     post_body: ""
   })
 
+  const [showFollow, setShowFollow] = useState(false)
+  const [filter, setFilter] = useState("")
   const [tagData, setTagData] = useState("")
- 
+  const [tagData2, setTagData2] = useState("")
   const [emoji, setEmoji] = useState("")
+  const [emoji2, setEmoji2] = useState("")
 
   const [errors, setErrors] = useState(null)
+
 
   function postChange (e) {
     setFormData({...formData, [e.target.name] : e.target.value})
@@ -22,6 +26,10 @@ function Home({user, posts, setPosts, tags}) {
   
   function createPost (e) {
     e.preventDefault()
+    if (tagData===tagData2) {
+      setErrors(["Cannot use two of the same tags"])
+      return
+    }
     const newPost = {...formData, user_id:user.id}
     fetch('/posts',{
       method: "POST",
@@ -31,12 +39,21 @@ function Home({user, posts, setPosts, tags}) {
     .then(r=>{
       if (r.ok) {
         r.json().then(newPost=>{                 
-          if (tagData) {
+          if (tagData!=="") {
             fetch("/post_tags", {
               method: "POST",
               headers: {"Content-Type": "application/json"},
               body: JSON.stringify({tag_id:tagData, post_id:newPost.id, emoji:emoji})
             })
+          }
+          if (tagData2!=="") {
+            setTimeout(()=>{
+              fetch("/post_tags", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({tag_id:tagData2, post_id:newPost.id, emoji:emoji2})
+              })
+            },500)
           }          
         })
       }
@@ -48,30 +65,43 @@ function Home({user, posts, setPosts, tags}) {
       
     })
     .then(()=>{
+      setTimeout(()=>{
       fetch("/posts")
       .then(r=>r.json())
-      .then((p)=>{
-        p[0].tags = [{id: tagData, name: tags[tagData-1].name}]
-        setPosts(p)
+      .then((p)=>{       
+        setPosts(p) 
         setFormData({
           title: "",
           picture_url: "",
           post_body: ""})
         setTagData("")
         setEmoji("")
+        setTagData2("")
+        setEmoji2("")
         setErrors(null)
-      })
+      })},2000)
     })
   }
 
+  const followedPost = posts.filter((post)=>{
+    if (showFollow) {
+      return user.following_id.includes(post.user.id)
+    }
+    else {
+      return true
+    }}
+    )
+ 
+  const filteredPosts = followedPost.filter((post)=>post.tags.filter((tag)=>tag.name.includes(filter)).length>0)
 
-  const postArray = posts.map((post,i)=><Post key={i} post={post} user={user}/>)
+  const postArray = filteredPosts.map((post,i)=><Post key={i} post={post} user={user}/>)
   
 
 
   return (
     <div>
-      <select name="filter" id="post-tag-dropdown">
+      <select name="filter" id="post-tag-dropdown" value={filter} onChange={e=>setFilter(e.target.value)}>
+        <option value=""></option>
         <option value="job posts">Job Posts</option>
         <option value="inspiration">Inspiration</option>
         <option value="mood swings">Mood Swings</option>
@@ -83,7 +113,7 @@ function Home({user, posts, setPosts, tags}) {
       {user ? 
         <div>
             <label id="filter-by-follow" htmlFor="follow_filter">
-              <input id="filter-checkbox" type="checkbox" name="follow_filter" value="follow"/>
+              <input id="filter-checkbox" type="checkbox" name="follow_filter" checked={showFollow} onChange={e=>setShowFollow(e.target.checked)}/>
             Only show people I follow</label>
             <br/> 
         </div> 
@@ -102,6 +132,14 @@ function Home({user, posts, setPosts, tags}) {
             setTagData(e.target.value)
             
             }} value={tagData}>
+            <option name="" value=""> </option>
+            {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
+          </select>
+          <input type="text" name="emoji" placeholder="Give your tags an Emoji" value={emoji2} onChange={(e)=>setEmoji2(e.target.value)}/>
+          <select name="filter" onChange={(e)=>{
+            setTagData2(e.target.value)
+            
+            }} value={tagData2}>
             <option name="" value=""> </option>
             {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
           </select>

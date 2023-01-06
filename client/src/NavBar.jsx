@@ -22,6 +22,7 @@ function NavBar({user, setUser}) {
       </div>
       <div className="nav-links">
         <NavLink to="/">Home</NavLink>
+        <NavLink to="/search">🔍</NavLink>
         {user ? 
         <>
         <NavLink to={`/profile/${user.id}`}>Profile</NavLink>
@@ -32,6 +33,7 @@ function NavBar({user, setUser}) {
           <NavLink to="/login">Login</NavLink>
           <NavLink to="/signup">Signup</NavLink>
         </>}
+        
         
       </div>
     </nav>
