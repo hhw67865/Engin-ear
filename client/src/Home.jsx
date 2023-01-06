@@ -147,7 +147,7 @@ function Home({user, posts, setPosts, tags}) {
           </textarea>
           <input id="submit-new-post" type="submit" value="Post!"/>
         </form>
-        {errors ? errors.map((e,i)=><p key={i}>{e}</p>):null}
+        {errors ? errors.map((e,i)=><p style={{color:"red"}} key={i}>* {e} *</p>):null}
       </div> :
       <div>
       <h1> Login to create a post! </h1>
