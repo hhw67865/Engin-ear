@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  skip_before_action :authorize, only: [:create, :index]
+  skip_before_action :authorize, only: [:create, :index, :showUser]
 
   # do we need to see all users of the app?
 
@@ -30,6 +30,10 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     render json: {}, status: :no_content
+  end
+
+  def showUser
+    render json: User.find(params[:id]), status: :ok
   end
 
 

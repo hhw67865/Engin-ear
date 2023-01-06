@@ -1,7 +1,19 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import {useNavigate} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import DifferentUserPage from "./DifferentUserPage"
 
 function Profile({user, setUser}) {
+
+  const { id } = useParams()
+  const [differentUser, setDifferentUser] = useState(null)
+
+  useEffect(()=>{
+    fetch(`/users/${id}`)
+    .then(r=>r.json())
+    .then(setDifferentUser)
+  },[])
+  
 
   let navigate = useNavigate();
 
@@ -85,7 +97,7 @@ function Profile({user, setUser}) {
       navigate('/login')
     })
   }
-  
+  if (id==user.id) {
   return (
     <div className="profile">
       <button id="update-profile-toggle" onClick={handleToggleUpdate}>{showUpdateProfile ? 'Hide Update View' : 'Update Profile'}</button>
@@ -179,7 +191,31 @@ function Profile({user, setUser}) {
       </div>
     </div>
     
-  )     
+  )    }
+  else {
+
+    
+
+    return (
+    //   <div className="profile">
+    //     <div id="profile-card-div">
+    //       <h1>{user.name}</h1>
+    //       <h2>{`(${user.pronouns})`}</h2>
+    //       <img id="profile-picture" src={user.profile_picture} alt={`${user.name}`}/>
+    //       <h2>{user.job_title}</h2>
+    //       {user.employer ? <p>Works at: {user.employer}</p> : null}
+    //       {user[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
+    //       <h3>{user.location}</h3>
+    //       {proLinks}
+    //       <a href={`mailto:${user.email}`}>E-mail</a>
+    //       <p># posts</p>
+    //       <p>{user.follower_count} followers</p>
+    //       <p>{user.following_count} following</p>
+    //     </div>
+    // </div>
+    <h1>This is not your profile</h1>
+    )
+  } 
 }
 
 export default Profile

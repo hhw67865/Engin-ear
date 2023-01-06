@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     resources :comments, only: :index
   end
   resources :professional_links, only: [:create, :update, :destroy]
-  resources :users
+  resources :users, except: :show
 
   
-  
+  get "/users/:id", to: 'users#showUser'
 
   delete 'follows/delete', to: 'follows#destroy'
 

@@ -29,7 +29,7 @@ const Post = ({post,user}) => {
     }
   }
 
-  const tagsArray = post.tags.map((e,i)=><span key={i}> #{e.name} </span>)
+  const tagsArray = post.tags.map((e,i)=><span key={i}> #{e.name} {post.emoji} </span>)
   
 
   return (

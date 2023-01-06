@@ -24,7 +24,7 @@ function NavBar({user, setUser}) {
         <NavLink to="/">Home</NavLink>
         {user ? 
         <>
-        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to={`/profile/${user.id}`}>Profile</NavLink>
         <button id="logout-button" onClick={handleLogout}>Logout</button>
         {/* <NavLink to="/logout">Logout</NavLink> */}
         </> : 

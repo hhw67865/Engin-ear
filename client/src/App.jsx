@@ -52,7 +52,8 @@ function App() {
 			<Routes>
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/signup" element={<Signup />} />
-        {user?<Route path="/profile" element={<Profile setUser={setUser} user={user} />} />:null}
+        
+        {user?<Route path="/profile/:id" element={<Profile setUser={setUser} user={user} />} />:null}
 				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts} tags={tags}/>} setUser={setUser} />
 			</Routes>
 		</div>

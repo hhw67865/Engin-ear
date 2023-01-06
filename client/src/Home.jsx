@@ -11,7 +11,7 @@ function Home({user, posts, setPosts, tags}) {
   })
 
   const [tagData, setTagData] = useState("")
-  const [tagName, setTagName] = useState("")
+ 
   const [emoji, setEmoji] = useState("")
 
   const [errors, setErrors] = useState(null)
@@ -53,6 +53,13 @@ function Home({user, posts, setPosts, tags}) {
       .then((p)=>{
         p[0].tags = [{id: tagData, name: tags[tagData-1].name}]
         setPosts(p)
+        setFormData({
+          title: "",
+          picture_url: "",
+          post_body: ""})
+        setTagData("")
+        setEmoji("")
+        setErrors(null)
       })
     })
   }
@@ -94,7 +101,7 @@ function Home({user, posts, setPosts, tags}) {
           <select name="filter" onChange={(e)=>{
             setTagData(e.target.value)
             
-            }}>
+            }} value={tagData}>
             <option name="" value=""> </option>
             {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
           </select>
