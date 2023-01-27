@@ -1,25 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PatioGarden
+===============
+***Created by: Henry Wu @hhw67865, Leah Cardoz @lcardoz, and Justin Woodruff @di4bolik4l***
 
-Things you may want to cover:
+*1 week project for Flatiron school*
 
-* Ruby version
 
-* System dependencies
+_______________________________
 
-* Configuration
 
-* Database creation
+This is a website is designed to be a LinkedIn Website for Software Engineers.
 
-* Database initialization
+Without a login, you should be able to:
+- View Posts created by other users.
+- View other Users.
 
-* How to run the test suite
+As a user, you should be able to:
+- Create an account and update it.
+- Delete your account.
+- Create Posts.
+- Follow and unfollow others.
 
-* Services (job queues, cache servers, search engines, etc.)
+___________________________________________________________
 
-* Deployment instructions
+How to start the application:
 
-* ...
-# Project_4
+2. Start Rails server:
+    rails s
+
+3. Start react client server:
+    cd client
+    npm start
+
+___________________________________________________________
+
+Project features:
+------------------
+
+
+### Backend Ruby/Rails
+
+- Ruby 2.7.4
+- Rails version: 7.0.4
+- SQLite
+- bcrypt
+- active_model_serializers
+
+### Frontend React/Create-React-App
+
+- react-router-dom
