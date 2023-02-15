@@ -26,10 +26,10 @@ ___________________________________________________________
 
 How to start the application:
 
-2. Start Rails server:
+1. Start Rails server:
     rails s
 
-3. Start react client server:
+2. Start react client server:
     cd client
     npm start
 
