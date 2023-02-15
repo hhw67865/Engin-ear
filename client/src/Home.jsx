@@ -1,9 +1,8 @@
-import Post from "./Post"
-
-import {useState} from "react"
+import Post from "./Post";
+import {useState} from "react";
 
 function Home({user, posts, setPosts, tags}) {
-  // :title, :post_body, :user_id, :picture_url
+
   const [formData, setFormData] = useState({
     title: "",
     picture_url: "",
@@ -16,9 +15,7 @@ function Home({user, posts, setPosts, tags}) {
   const [tagData2, setTagData2] = useState("")
   const [emoji, setEmoji] = useState("")
   const [emoji2, setEmoji2] = useState("")
-
   const [errors, setErrors] = useState(null)
-
 
   function postChange (e) {
     setFormData({...formData, [e.target.name] : e.target.value})
@@ -62,7 +59,6 @@ function Home({user, posts, setPosts, tags}) {
           setErrors(obj.errors)
         })
       }
-      
     })
     .then(()=>{
       setTimeout(()=>{
@@ -89,8 +85,7 @@ function Home({user, posts, setPosts, tags}) {
     }
     else {
       return true
-    }}
-    )
+    }})
  
   const filteredPosts = followedPost.filter((post)=>post.tags.filter((tag)=>tag.name.includes(filter)).length>0)
 
@@ -116,49 +111,47 @@ function Home({user, posts, setPosts, tags}) {
         <div>
             <label id="filter-by-follow" htmlFor="follow_filter">
               <input id="filter-checkbox" type="checkbox" name="follow_filter" checked={showFollow} onChange={e=>setShowFollow(e.target.checked)}/>
-            Only show people I follow</label>
+              Only show people I follow</label>
             <br/> 
         </div> 
       : null}
-
       {user ?
-      <div id="post-creation-div">
-        <h2>Create a Post!</h2>
-        <form id="post-creation-form" onSubmit={createPost}>
-          <label style={{fontWeight: "bold"}} htmlFor="title">Title:</label> <br/>
-          <input className="create-post-inputs" type="text" name="title" value={formData.title} onChange={postChange}/><br/><br/>
-          <label style={{fontWeight: "bold"}} htmlFor="picture">Image URL:</label><br/>
-          <input className="create-post-inputs" type="text" name="picture_url" value={formData.picture_url} onChange={postChange}/><br/><br/>
-          <label style={{fontWeight: "bold"}} htmlFor="tag">Add a Post Tag:</label><br/>
-          <select id="create-post-selects" name="filter" onChange={(e)=>{
-            setTagData(e.target.value)
-            }} value={tagData}>
-            <option name="" value=""> </option>
-            {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
-          </select><br/><br/>
-          <label style={{fontWeight: "bold"}} htmlFor="emoji">Insert an Emoji for your Tag:</label><br/>
-          <input className="create-post-inputs" type="text" name="emoji" value={emoji} onChange={(e)=>setEmoji(e.target.value)}/><br/><br/>
-          <label style={{fontWeight: "bold"}} htmlFor="tag">Add Another Post Tag:</label><br/>
-          <select id="create-post-selects" name="filter" onChange={(e)=>{
-            setTagData2(e.target.value)        
-            }} value={tagData2}>
-            <option name="" value=""> </option>
-            {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
-          </select><br/><br/>
-          <label style={{fontWeight: "bold"}} htmlFor="emoji">Insert an Emoji for your Tag:</label><br />
-          <input className="create-post-inputs" type="text" name="emoji" value={emoji2} onChange={(e)=>setEmoji2(e.target.value)}/>
-          <br/><br/>
-          <textarea id="post_body" name="post_body" rows="4" cols="50" placeholder="What's on your mind?" value={formData.post_body} onChange={postChange}>
-          </textarea><br/>
-          <input id="submit-new-post" type="submit" value="Post!"/>
-        </form>
-        {errors ? errors.map((e,i)=><p style={{color:"#f44336"}} key={i}>* {e} *</p>):null}
-      </div> :
-      <div>
-      <h1> Login to create a post! </h1>
-      </div>
+        <div id="post-creation-div">
+          <h2>Create a Post!</h2>
+          <form id="post-creation-form" onSubmit={createPost}>
+            <label style={{fontWeight: "bold"}} htmlFor="title">Title:</label> <br/>
+            <input className="create-post-inputs" type="text" name="title" value={formData.title} onChange={postChange}/><br/><br/>
+            <label style={{fontWeight: "bold"}} htmlFor="picture">Image URL:</label><br/>
+            <input className="create-post-inputs" type="text" name="picture_url" value={formData.picture_url} onChange={postChange}/><br/><br/>
+            <label style={{fontWeight: "bold"}} htmlFor="tag">Add a Post Tag:</label><br/>
+            <select id="create-post-selects" name="filter" onChange={(e)=>{
+              setTagData(e.target.value)
+              }} value={tagData}>
+              <option name="" value=""> </option>
+              {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
+            </select><br/><br/>
+            <label style={{fontWeight: "bold"}} htmlFor="emoji">Insert an Emoji for your Tag:</label><br/>
+            <input className="create-post-inputs" type="text" name="emoji" value={emoji} onChange={(e)=>setEmoji(e.target.value)}/><br/><br/>
+            <label style={{fontWeight: "bold"}} htmlFor="tag">Add Another Post Tag:</label><br/>
+            <select id="create-post-selects" name="filter" onChange={(e)=>{
+              setTagData2(e.target.value)        
+              }} value={tagData2}>
+              <option name="" value=""> </option>
+              {tags.map((tag)=><option key={tag.id} name={tag.name} value={tag.id}>{tag.name}</option>)}
+            </select><br/><br/>
+            <label style={{fontWeight: "bold"}} htmlFor="emoji">Insert an Emoji for your Tag:</label><br />
+            <input className="create-post-inputs" type="text" name="emoji" value={emoji2} onChange={(e)=>setEmoji2(e.target.value)}/>
+            <br/><br/>
+            <textarea id="post_body" name="post_body" rows="4" cols="50" placeholder="What's on your mind?" value={formData.post_body} onChange={postChange}>
+            </textarea><br/>
+            <input id="submit-new-post" type="submit" value="Post!"/>
+          </form>
+          {errors ? errors.map((e,i)=><p style={{color:"#f44336"}} key={i}>* {e} *</p>):null}
+        </div> :
+        <div>
+          <h1 style={{textAlign: "center"}}> Signup or Login to create a post! </h1>
+        </div>
       }
-      
       <div id="post_feed">
         {postArray}
       </div>
@@ -166,4 +159,4 @@ function Home({user, posts, setPosts, tags}) {
   )
 }
 
-export default Home
+export default Home;

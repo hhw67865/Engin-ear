@@ -2,8 +2,6 @@ class UsersController < ApplicationController
   
   skip_before_action :authorize, only: [:create, :index, :showUser]
 
-  # do we need to see all users of the app?
-
   def index
     render json: User.all, status: :ok
   end
@@ -36,13 +34,9 @@ class UsersController < ApplicationController
     render json: User.find(params[:id]), status: :ok
   end
 
-
-
   private
   def user_params
     params.permit(:name, :pronouns, :password, :email, :job_title, :employer, :open_to_work?, :profile_picture, :location)
   end
   
-
 end
-

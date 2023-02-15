@@ -1,5 +1,7 @@
 class PostSerializer < ActiveModel::Serializer
+
   include ActionView::Helpers::DateHelper
+
   attributes :id, :title, :post_body, :picture_url, :created_at_ago, :emoji
   has_one :user
   has_many :comments
@@ -16,6 +18,4 @@ class PostSerializer < ActiveModel::Serializer
     end
   end
     
-
-
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :follows, only: [:create]
   resources :post_tags, only: [:index, :create, :destroy]
   resources :tags, only: [:index, :show]
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
   resources :professional_links, only: [:create, :update, :destroy]
   resources :users, except: :show
 
-  
   get "/users/:id", to: 'users#showUser'
 
   delete 'follows/delete', to: 'follows#destroy'
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   post '/signup', to: "users#create"
+
 end

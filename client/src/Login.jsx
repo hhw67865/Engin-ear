@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 
 function Login({setUser}) {
   
@@ -28,18 +28,16 @@ function Login({setUser}) {
 			},
 			body: JSON.stringify(user)
 		})
-		.then(res => 
-      {
-			if(res.ok) {
-				res.json().then(user => {
+		.then(res => {
+      if(res.ok) {
+        res.json().then(user => {
           setUser(user)
-					navigate(`/`)
-				})
-			} else {
-				res.json().then(obj => setErrors(obj.error))
-			}
-		}
-    )
+          navigate(`/`)
+        })
+      } else {
+        res.json().then(obj => setErrors(obj.error))
+      }
+		})
 	}
 
   function handleChange (e) {
@@ -81,4 +79,4 @@ function Login({setUser}) {
   )
 }
 
-export default Login
+export default Login;

@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import SearchedCard from './SearchedCard'
+import {useState} from 'react';
+import SearchedCard from './SearchedCard';
 
 const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
 
@@ -28,8 +28,7 @@ const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
           setUpdate(!update)
         }
       })
-    }
-    else {
+    } else {
       fetch('/follows', {
         method: "POST",
         headers: {"Content-Type":"application/json"},
@@ -42,9 +41,7 @@ const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
         }
       })
     }
-    
   }
-
 
   return (
     <div className="profile">
@@ -59,7 +56,6 @@ const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
           <h3>{diffUser.location}</h3>
           {proLinks}
           <a href={`mailto:${diffUser.email}`}>E-mail</a>
-
           <p>{diffUser.posts.length} posts</p>
           <p style={{cursor:"pointer"}} onClick={()=>setFollower(!follower)}>{diffUser.follower_count} followers</p>
           {follower?<div className="follow-container">
@@ -69,9 +65,9 @@ const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
           {following?<div className="follow-container">
           {diffUser.following.map((followed,i)=><SearchedCard key={i} update={update} setUpdate={setUpdate} u={followed}/>)}
           </div>: null}
-
         </div>
     </div>
   );
 }
+
 export default DifferentUserPage;

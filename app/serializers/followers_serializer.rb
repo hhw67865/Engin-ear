@@ -1,6 +1,6 @@
 class FollowersSerializer < ActiveModel::Serializer
-  attributes :id, :name, :profile_picture
 
+  attributes :id, :name, :profile_picture
 
   def id
     User.find(self.object.follower_id).id
@@ -13,5 +13,5 @@ class FollowersSerializer < ActiveModel::Serializer
   def profile_picture
     User.find(self.object.follower_id).profile_picture
   end
-end
 
+end

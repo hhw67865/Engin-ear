@@ -19,4 +19,5 @@ class UserInfoSerializer < ActiveModel::Serializer
   def following_id
     self.object.following.map { |follow| follow.followed_id}
   end
+  
 end

@@ -1,13 +1,14 @@
-import CommentCard from "./CommentCard"
-import {useState} from "react"
+import CommentCard from "./CommentCard";
+import {useState} from "react";
 
 const CommentContainer = ({comments, user, post, setComments}) => {
 
   const [textArea, setTextArea] = useState("")
   const [errors, setErrors] = useState(null)
   
-  const commentsArray = comments.map((comment,i)=>
-  <CommentCard key={i} comment={comment} user={user} setComments={setComments} />)
+  const commentsArray = comments.map((comment,i) =>
+    <CommentCard key={i} comment={comment} user={user} setComments={setComments} />
+  )
 
   function handleText (e) {
     setTextArea(e.target.value)
@@ -39,7 +40,6 @@ const CommentContainer = ({comments, user, post, setComments}) => {
     })
   }
 
-
   return (
     <div className="commentContainer">
       <div className="comment_feed">
@@ -54,4 +54,5 @@ const CommentContainer = ({comments, user, post, setComments}) => {
     </div>
   );
 }
+
 export default CommentContainer;

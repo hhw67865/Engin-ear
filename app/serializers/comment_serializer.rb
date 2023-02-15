@@ -1,5 +1,7 @@
 class CommentSerializer < ActiveModel::Serializer
+
   include ActionView::Helpers::DateHelper
+  
   attributes :id, :comment_body, :created_at_ago
   has_one :post
   has_one :user

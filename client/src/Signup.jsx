@@ -1,7 +1,8 @@
 import { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 
-function Signup () {
+function Signup() {
+
 	const [name, setName] = useState("")
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
@@ -27,8 +28,7 @@ function Signup () {
 			if (r.ok) {
 				navigate('/login')
 				setErrors(null)
-			}
-			else {
+			} else {
 				r.json()
 				.then(obj => {setErrors(obj.errors)})
 			}
@@ -43,7 +43,6 @@ function Signup () {
 					<input
 						type="text" 
 						name="name" 
-						// placeholder="First & Last Name"
 						value={name} 
 						onChange={(e) => setName(e.target.value)}
 					/>
@@ -51,7 +50,6 @@ function Signup () {
 					<input  
 						type="text" 
 						name="email" 
-						// placeholder="E-mail Address"
 						value={email} 
 						onChange={(e) => setEmail(e.target.value)}
 					/>
@@ -59,7 +57,6 @@ function Signup () {
 					<input  
 						type="password" 
 						name="password" 
-						// placeholder="Password"
 						value={password} 
 						onChange={(e) => setPassword(e.target.value)}
 					/>
@@ -72,4 +69,4 @@ function Signup () {
 	);
 }
 
-export default Signup
+export default Signup;

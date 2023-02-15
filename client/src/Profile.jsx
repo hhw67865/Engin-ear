@@ -1,8 +1,8 @@
-import {useState, useEffect} from "react"
-import {useNavigate} from 'react-router-dom'
-import { useParams } from 'react-router-dom'
-import DifferentUserPage from "./DifferentUserPage"
-import SearchedCard from "./SearchedCard"
+import {useState, useEffect} from "react";
+import {useNavigate} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import DifferentUserPage from "./DifferentUserPage";
+import SearchedCard from "./SearchedCard";
 
 function Profile({user, setUser, setUpdate, update}) {
 
@@ -15,12 +15,11 @@ function Profile({user, setUser, setUpdate, update}) {
     fetch(`/users/${id}`)
     .then(r=>r.json())
     .then(setDifferentUser)
-  },[update])
+  }, [update])
   
-
   let navigate = useNavigate();
 
-  const [errors, setErrors] = useState(null)
+  const [errors, setErrors] = useState(null);
   const [showUpdateProfile, setShowUpdateProfile] = useState(false);
   const [profileFormData, setProfileFormData] = useState({
     name: "",
@@ -55,7 +54,7 @@ function Profile({user, setUser, setUpdate, update}) {
       employer: user.employer,
       [`open_to_work?`]: user[`open_to_work?`],
       profile_picture: user.profile_picture
-  })
+    })
   }
 
   function handleChange(e) {
@@ -81,7 +80,6 @@ function Profile({user, setUser, setUpdate, update}) {
         r.json().then(obj=>setUser(obj))
         setErrors(null)
         setShowUpdateProfile(false)
-    
       }
       else {
         r.json().then((obj)=>{
@@ -102,115 +100,111 @@ function Profile({user, setUser, setUpdate, update}) {
   }
   
   if (id==user.id) {
-  return (
-    <div className="profile">
-      <button id="update-profile-toggle" onClick={handleToggleUpdate}>{showUpdateProfile ? 'Hide Update View' : 'Update Profile'}</button>
-      {showUpdateProfile ? 
-      <div id="profile-form-div">
-        <form onSubmit={handleUpdateSubmit}>
-          <h2>Name:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='name'
-							value={profileFormData.name}
-							onChange={handleChange}
-						/>
-          <h2>Pronouns:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='pronouns'
-							value={profileFormData.pronouns}
-							onChange={handleChange}
-						/>
-          <h2>E-mail:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='email'
-							value={profileFormData.email}
-							onChange={handleChange}
-						/>
-          <h2>Location:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='location'
-							value={profileFormData.location}
-							onChange={handleChange}
-						/>
-          <h2>Job Title:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='job_title'
-							value={profileFormData.job_title}
-							onChange={handleChange}
-						/>
-          <h2>Employer:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='employer'
-							value={profileFormData.employer}
-							onChange={handleChange}
-						/>
-          <h2>Open To Work?</h2>
-            <input
-							className='profile-form-inputs'
-							type='checkbox'
-							name='open_to_work?'
-							checked={profileFormData[`open_to_work?`]}
-							onChange={handleChange}
-						/>
-          <h2>Profile Picture:</h2>
-            <input
-							className='profile-form-inputs'
-							type='text'
-							name='profile_picture'
-							value={profileFormData.profile_picture}
-							onChange={handleChange}
-						/>
-            <br />
-            {errors ? errors.map((e,i)=><p key={i}>{e}</p>):null}
-            <br />
-            <input id='button-update-form' type='submit' value='Update Profile!' />
-            
-        </form></div> : null }
-      <div id="profile-card-div">
-        <h1>{user.name}</h1>
-        <h2>({user.pronouns})</h2>
-        <img id="profile-picture" src={user.profile_picture?user.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${user.name}`}/>
-        <h2>{user.job_title}</h2>
-        {user.employer ? <p>Works at: {user.employer}</p> : null}
-        {user[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
-        <h3>{user.location}</h3>
-        {proLinks}
-        <a href={`mailto:${user.email}`}>E-mail</a>
-        <p>{user.posts.length} posts</p>
-        <p style={{cursor:"pointer"}} onClick={()=>setFollower(!follower)}>{user.follower_count} followers</p>
-        {follower?<div className="follow-container">
-          {user.followers.map((follower,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={follower}/>)}
-        </div>: null}
-        <p style={{cursor:"pointer"}} onClick={()=>setFollowing(!following)}>{user.following_count} following</p>
-        {following?<div className="follow-container">
-          {user.following.map((followed,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={followed}/>)}
-        </div>: null}
-        <button id="delete-account-button" onClick={handleDelete}>DELETE ACCOUNT</button>
-
+    return (
+      <div className="profile">
+        <button id="update-profile-toggle" onClick={handleToggleUpdate}>{showUpdateProfile ? 'Hide Update View' : 'Update Profile'}</button>
+        {showUpdateProfile ? 
+        <div id="profile-form-div">
+          <form onSubmit={handleUpdateSubmit}>
+            <h2>Name:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='name'
+                value={profileFormData.name}
+                onChange={handleChange}
+              />
+            <h2>Pronouns:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='pronouns'
+                value={profileFormData.pronouns}
+                onChange={handleChange}
+              />
+            <h2>E-mail:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='email'
+                value={profileFormData.email}
+                onChange={handleChange}
+              />
+            <h2>Location:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='location'
+                value={profileFormData.location}
+                onChange={handleChange}
+              />
+            <h2>Job Title:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='job_title'
+                value={profileFormData.job_title}
+                onChange={handleChange}
+              />
+            <h2>Employer:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='employer'
+                value={profileFormData.employer}
+                onChange={handleChange}
+              />
+            <h2>Open To Work?</h2>
+              <input
+                className='profile-form-inputs'
+                type='checkbox'
+                name='open_to_work?'
+                checked={profileFormData[`open_to_work?`]}
+                onChange={handleChange}
+              />
+            <h2>Profile Picture:</h2>
+              <input
+                className='profile-form-inputs'
+                type='text'
+                name='profile_picture'
+                value={profileFormData.profile_picture}
+                onChange={handleChange}
+              />
+              <br />
+              {errors ? errors.map((e,i)=><p key={i}>{e}</p>):null}
+              <br />
+              <input id='button-update-form' type='submit' value='Update Profile!' />   
+          </form></div> : null }
+        <div id="profile-card-div">
+          <h1>{user.name}</h1>
+          <h2>({user.pronouns})</h2>
+          <img id="profile-picture" src={user.profile_picture?user.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${user.name}`}/>
+          <h2>{user.job_title}</h2>
+          {user.employer ? <p>Works at: {user.employer}</p> : null}
+          {user[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
+          <h3>{user.location}</h3>
+          {proLinks}
+          <a href={`mailto:${user.email}`}>E-mail</a>
+          <p>{user.posts.length} posts</p>
+          <p style={{cursor:"pointer"}} onClick={()=>setFollower(!follower)}>{user.follower_count} followers</p>
+          {follower?<div className="follow-container">
+            {user.followers.map((follower,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={follower}/>)}
+          </div>: null}
+          <p style={{cursor:"pointer"}} onClick={()=>setFollowing(!following)}>{user.following_count} following</p>
+          {following?<div className="follow-container">
+            {user.following.map((followed,i)=><SearchedCard update={update} setUpdate={setUpdate} key={i} u={followed}/>)}
+          </div>: null}
+          <button id="delete-account-button" onClick={handleDelete}>DELETE ACCOUNT</button>
+        </div>
       </div>
-    </div>
-    
-  )    }
-  else {
-
+    )
+  } else {
     return (
       <>
-        {differentUser ? <DifferentUserPage update={update} setUpdate={setUpdate} diffUser={differentUser} user={user}/>: <h1>Loading up profile...</h1>}
+        {differentUser ? <DifferentUserPage update={update} setUpdate={setUpdate} diffUser={differentUser} user={user}/>: <h1>Loading profile...</h1>}
       </>
     )
   } 
 }
 
-export default Profile
+export default Profile;

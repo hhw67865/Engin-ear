@@ -10,8 +10,6 @@ body {
 /* NAVBAR */
 
 nav a.active {
-  /* background-color: #f6ab9d; */
-  /* color: #004223c7; */
   align-items: center;
   text-decoration: underline;
 }
@@ -23,8 +21,6 @@ nav {
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.772);
   border-radius: 5px;
-  /* padding-left: 2%; */
-  /* width: 90%; */
 }
 
 .nav-links {
@@ -38,7 +34,6 @@ nav {
 nav a {
   text-decoration: none;
   color: black;
-
 }
 
 nav a:hover {
@@ -68,7 +63,6 @@ nav a:hover {
   border: 2px #000000 solid;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
-
 
 /* FORM */
 
@@ -135,7 +129,6 @@ input {
   width: 600px;
   margin: auto;
   padding-bottom: 50px;
-
 }
 
 #profile-card-div {
@@ -265,7 +258,6 @@ input {
 .create-post-inputs {
   font-size: 1.2em;
   padding: 2px;
-  /* margin: 0px; */
 }
 
 #create-post-selects {
@@ -294,7 +286,6 @@ input {
   height: 40px;
   background-color: #f0d290;
   border: 1px black solid;
-  /* font-size: .9em; */
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -409,12 +400,6 @@ input {
   width: 550px;
 }
 
-/* .comment {
-  padding: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-} */
-
 .commentProfilePicture {
   flex-direction: column;
   margin-bottom: 0px;
@@ -447,9 +432,6 @@ input {
   padding-right: 25px;
 }
 
-
-
-
 .follow-container {
   margin: 10px;
   display: flex;
@@ -458,14 +440,12 @@ input {
   justify-content: center;
 }
 
-
 #delete-comment-button {
   width: 140px;
   height: 30px;
   background-color: #f0655b;
   border: 1px black solid;
   font-size: 1em;
-  /* font-weight: bold; */
   margin: 0rem 0rem 2rem;
   border-radius: 5px;
   cursor: pointer;
@@ -479,6 +459,7 @@ input {
 }
 
 /* The alert message box */
+
 .alert {
   padding: 20px;
   background-color: #f44336; /* Red */

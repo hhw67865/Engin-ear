@@ -24,20 +24,18 @@ function NavBar({user, setUser}) {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/search">Search 🔍</NavLink>
         {user ? 
-        <>
-        <NavLink to={`/profile/${user.id}`}>Profile</NavLink>
-        <button id="logout-button" onClick={handleLogout}>Logout</button>
-        {/* <NavLink to="/logout">Logout</NavLink> */}
-        </> : 
-        <>
-          <NavLink to="/login">Login</NavLink>
-          <NavLink to="/signup">Signup</NavLink>
-        </>}
-        
-        
+          <>
+            <NavLink to={`/profile/${user.id}`}>Profile</NavLink>
+            <button id="logout-button" onClick={handleLogout}>Logout</button>
+          </> : 
+          <>
+            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/signup">Signup</NavLink>
+          </>
+        }
       </div>
     </nav>
   )
 }
 
-export default NavBar
+export default NavBar;

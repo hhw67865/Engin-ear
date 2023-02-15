@@ -1,26 +1,26 @@
-# README
+# Engine-Ear.
 
-PatioGarden
-===============
 ***Created by: Henry Wu @hhw67865, Leah Cardoz @lcardoz, and Justin Woodruff @di4bolik4l***
 
-*1 week project for Flatiron school*
-
-
+*1 week to create a React & Rails single-page app for Flatiron School project 4*
 _______________________________
 
+Welcome to Engine-Ear. - The 'LinkedIn' for software engineers!
 
-This is a website is designed to be a LinkedIn Website for Software Engineers.
+Without logging in, users should be able to:
+- See posts created by other users and filter posts by tags.
+- See other users (but not their profiles).
+- Sign up by creating a user account.
+- Search for users.
 
-Without a login, you should be able to:
-- View Posts created by other users.
-- View other Users.
-
-As a user, you should be able to:
-- Create an account and update it.
-- Delete your account.
-- Create Posts.
-- Follow and unfollow others.
+Logged in users should be able to:
+- Update their profile.
+- Delete their account.
+- Create posts.
+- Comment on posts and delete their comments.
+- View other users' profiles.
+- Filter posts to only show followed users' posts.
+- Follow and unfollow other users.
 
 ___________________________________________________________
 
@@ -37,7 +37,6 @@ ___________________________________________________________
 
 Project features:
 ------------------
-
 
 ### Backend Ruby/Rails
 

@@ -23,7 +23,6 @@ function App() {
        res.json()
        .then(user => {
         setUser(user)
-        // fetchPosts()
       })
       }
     })
@@ -35,16 +34,11 @@ function App() {
     .then(setTags)
   },[])
 
-
   useEffect(()=>{
     fetch("/posts")
     .then(r=>r.json())
     .then(setPosts)
   }, [user])
-
-
-
-
 
   if (errors) return <h1>{errors}</h1>
 
@@ -54,13 +48,8 @@ function App() {
 			<Routes>
 				<Route path="/login" element={<Login setUser={setUser} />} />
 				<Route path="/signup" element={<Signup />} />
-        
-
-        
-
-        {user ? <Route path="/profile/:id" element={<Profile setUpdate={setUpdate} update={update} setUser={setUser} user={user} />} /> : <Route path="/profile/:id" element={<div className="alert">
+          {user ? <Route path="/profile/:id" element={<Profile setUpdate={setUpdate} update={update} setUser={setUser} user={user} />} /> : <Route path="/profile/:id" element={<div className="alert">
           Please login or signup to see user profiles.</div>} />}
-
         <Route path="/search" element={<Search setUpdate={setUpdate} update={update} user={user}/>}/>
 				<Route path="/" element={<Home user={user} posts={posts} setPosts={setPosts} tags={tags}/>} setUser={setUser} />
 			</Routes>
@@ -68,4 +57,4 @@ function App() {
 	)
 }
 
-export default App
+export default App;

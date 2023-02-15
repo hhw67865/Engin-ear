@@ -1,24 +1,25 @@
 import SearchedCard from "./SearchedCard";
-import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react';
 
 const Search = ({user, setUpdate, update}) => {
 
-    const [allUsers, setAllUsers] = useState([])
-    const [search, setSearch] = useState("")
+  const [allUsers, setAllUsers] = useState([])
+  const [search, setSearch] = useState("")
 
-    useEffect(()=>{
-        fetch('/users')
-        .then(r=>r.json())
-        .then(setAllUsers)
-    },[user])
+  useEffect(()=> {
+      fetch('/users')
+      .then(r=>r.json())
+      .then(setAllUsers)
+  },[user])
 
-    const filteredUsers = allUsers.filter((user)=>{
-        if (search==="") {
-            return false
-        }
-        return user.name.toLowerCase().includes(search.toLowerCase())
-    })
-    const usersArray = filteredUsers.map((u)=><SearchedCard key={u.id} setUpdate={setUpdate} update={update} u={u}/>)
+  const filteredUsers = allUsers.filter((user)=> {
+    if (search==="") {
+      return false
+    }
+      return user.name.toLowerCase().includes(search.toLowerCase())
+  })
+
+  const usersArray = filteredUsers.map((u)=><SearchedCard key={u.id} setUpdate={setUpdate} update={update} u={u}/>)
 
   return (
     <div className="profile" id="profile-card-div" style={{minHeight: "300px"}}>
@@ -29,4 +30,5 @@ const Search = ({user, setUpdate, update}) => {
     </div>
   );
 }
+
 export default Search;

@@ -1,5 +1,4 @@
-import {useState} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 
 const CommentCard = ({comment, user, setComments}) => {
 
@@ -43,4 +42,5 @@ const CommentCard = ({comment, user, setComments}) => {
     </div>
   );
 }
+
 export default CommentCard;

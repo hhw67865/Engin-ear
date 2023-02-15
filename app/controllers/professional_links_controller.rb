@@ -2,7 +2,7 @@ class ProfessionalLinksController < ApplicationController
 
   def create
     link = ProfessionalLink.create!(link_params)
-      render json: link, status: :created
+    render json: link, status: :created
   end
 
   def update
@@ -15,7 +15,6 @@ class ProfessionalLinksController < ApplicationController
     link = ProfessionalLink.find_by!(id: params[:id])
     link.destroy
     render json: {}, status: :no_content
-
   end
 
   private

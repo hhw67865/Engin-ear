@@ -17,7 +17,6 @@ User.create(
 ProfessionalLink.create(name: "Github", link: "github.com/henrywu", user_id: 1)
 ProfessionalLink.create(name: "LinkedIn", link: "linkedin.com/henrywu", user_id: 1)
 
-
 User.create(
     name: "Leah Cardoz",
     pronouns: "they/them",
@@ -70,7 +69,6 @@ Follow.create(followed_id: 1, follower_id: 2)
 Follow.create(followed_id: 2, follower_id: 3)
 Follow.create(followed_id: 3, follower_id: 1)
 Follow.create(followed_id: 3, follower_id: 2)
-
 
 5.times do
     Post.create(
