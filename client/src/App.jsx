@@ -58,7 +58,7 @@ function App() {
 
         
 
-        {user?<Route path="/profile/:id" element={<Profile setUpdate={setUpdate} update={update} setUser={setUser} user={user} />} />: <Route path="/profile/:id" element={<div className="alert">
+        {user ? <Route path="/profile/:id" element={<Profile setUpdate={setUpdate} update={update} setUser={setUser} user={user} />} /> : <Route path="/profile/:id" element={<div className="alert">
           Please login or signup to see user profiles.</div>} />}
 
         <Route path="/search" element={<Search setUpdate={setUpdate} update={update} user={user}/>}/>

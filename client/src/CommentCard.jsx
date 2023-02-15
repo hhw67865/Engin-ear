@@ -21,13 +21,13 @@ const CommentCard = ({comment, user, setComments}) => {
 
   return (
     <div className="commentCard">
-      <div className="user-post-header-1" onClick={goToCommenterProfile}>
+      <div className="user-post-header-1">
         <div>
-          <img className="commentProfilePicture" src={comment.user.profile_picture? comment.user.profile_picture :"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={comment.user.name}/>
+          <img onClick={goToCommenterProfile} style={{cursor: "pointer"}} className="commentProfilePicture" src={comment.user.profile_picture? comment.user.profile_picture :"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={comment.user.name}/>
         </div>
         <div id="flex-wrap">
           <div>
-            <h3>{comment.user.name}</h3>
+            <h3 onClick={goToCommenterProfile} style={{cursor: "pointer"}}>{comment.user.name}</h3>
           </div>
           <div>
             <p> {comment.comment_body} </p>

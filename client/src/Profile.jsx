@@ -100,6 +100,7 @@ function Profile({user, setUser, setUpdate, update}) {
       navigate('/login')
     })
   }
+  
   if (id==user.id) {
   return (
     <div className="profile">
