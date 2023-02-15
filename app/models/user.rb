@@ -9,15 +9,13 @@ class User < ApplicationRecord
     has_many :following, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
     # All the people the user is following
 
-    
+ 
 
-
-    validates :name, presence: true, uniqueness: true
+    validates :name, presence: true
     validates :email, presence: true, uniqueness: true
 
     validate :password_conditions, on: :create
     validate :password_conditions, if: :password_exists?
-
 
     private
 
@@ -30,7 +28,6 @@ class User < ApplicationRecord
         errors.add :password, "is too short (minimum is #{minimum_length} characters)" unless password.length >= minimum_length
         errors.add :password, "can't be blank" unless password
     end
-
 
 
     def password_exists?
