@@ -3,9 +3,11 @@
 ***Created by: Henry Wu @hhw67865, Leah Cardoz @lcardoz, and Justin Woodruff @di4bolik4l***
 
 *1 week to create a React & Rails single-page app for Flatiron School project 4*
-_______________________________
+___________________________________________________________
 
 Welcome to Engine-Ear. - The 'LinkedIn' for software engineers!
+
+[Engine-Ear. Video Demo](https://vimeo.com/799307351)
 
 Without logging in, users should be able to:
 - See posts created by other users and filter posts by tags.
