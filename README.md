@@ -1,13 +1,10 @@
 # Engine-Ear.
 
-***Created by: Henry Wu @hhw67865, Leah Cardoz @lcardoz, and Justin Woodruff @di4bolik4l***
-
-*1 week to create a React & Rails single-page app for Flatiron School project 4*
-___________________________________________________________
-
 Welcome to Engine-Ear. - The 'LinkedIn' for software engineers!
 
-[Engine-Ear. Video Demo](https://vimeo.com/799307351)
+This React & Rails single-page application was created by [Henry Wu](https://github.com/hhw67865), [Leah Cardoz](https://github.com/lcardoz) & [Justin Woodruff](https://github.com/di4bolik4l) for their Phase 4 software engineering group project at Flatiron School (1 week to build).
+
+## Features:
 
 Without logging in, users should be able to:
 - See posts created by other users and filter posts by tags.
@@ -24,30 +21,36 @@ Logged in users should be able to:
 - Filter posts to only show followed users' posts.
 - Follow and unfollow other users.
 
-___________________________________________________________
+## Demos:
 
-How to start the application:
+[Watch Leah demo the entire app here!](https://vimeo.com/799307351)
+
+## Usage:
 
 1. Start Rails server:
-    rails s
 
-2. Start react client server:
-    cd client
-    npm start
+```sh
+rails s
+```
 
-___________________________________________________________
+2. Start React client server:
 
-Project features:
-------------------
+```sh
+cd client
+```
+```sh
+npm start
+```
 
-### Backend Ruby/Rails
+## Tech:
 
-- Ruby 2.7.4
-- Rails version: 7.0.4
+Backend Ruby/Rails:
+- ruby 2.7.4
+- rails 7.0.4
 - SQLite
 - bcrypt
 - active_model_serializers
 
-### Frontend React/Create-React-App
-
-- react-router-dom
+Frontend React/create-react-app:
+- react 18.2.0
+- react-router-dom 6.6.1
