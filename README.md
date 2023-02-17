@@ -25,24 +25,7 @@ Logged in users should be able to:
 
 [Watch Leah demo the entire app here!](https://vimeo.com/799307351)
 
-## Usage:
-
-1. Start Rails server:
-
-```sh
-rails s
-```
-
-2. Start React client server:
-
-```sh
-cd client
-```
-```sh
-npm start
-```
-
-## Tech:
+## Tech Stack & Requirements:
 
 Backend Ruby/Rails:
 - ruby 2.7.4
@@ -54,3 +37,26 @@ Backend Ruby/Rails:
 Frontend React/create-react-app:
 - react 18.2.0
 - react-router-dom 6.6.1
+
+## Getting Started:
+
+1. Install dependencies:
+
+```sh
+npm install
+```
+
+2. Start Rails server:
+
+```sh
+rails s
+```
+
+3. Start React client server:
+
+```sh
+cd client
+```
+```sh
+npm start
+```
