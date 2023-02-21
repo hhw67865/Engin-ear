@@ -1,4 +1,4 @@
-![Engine-Ear. Logo](./client/src/engine-ear-readme-logo.png)
+![Engine-Ear. Logo](./client/src/engine-ear-readme-logo1.png)
 
 # Engine-Ear.
 
