@@ -1,3 +1,5 @@
+![Engine-Ear. Logo](./client/src/engine-ear-readme-logo.png)
+
 # Engine-Ear.
 
 Welcome to Engine-Ear. - The 'LinkedIn' for software engineers!
