@@ -177,12 +177,11 @@ function Profile({user, setUser, setUpdate, update}) {
           </form></div> : null }
         <div id="profile-card-div">
           <h1>{user.name}</h1>
-          <h2>({user.pronouns})</h2>
+          <h2><i>({user.pronouns})</i></h2>
           <img id="profile-picture" src={user.profile_picture?user.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${user.name}`}/>
-          <h2>{user.job_title}</h2>
-          {user.employer ? <p>Works at: {user.employer}</p> : null}
+          {user.employer ? <><h2>{user.job_title} <br /> @ {user.employer}</h2></> : <h2>{user.job_title}</h2>}
           {user[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
-          <h3>{user.location}</h3>
+          <h3>📍 {user.location}</h3>
           {proLinks}
           <a href={`mailto:${user.email}`}>E-mail</a>
           <p>{user.posts.length} posts</p>

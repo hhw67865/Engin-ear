@@ -50,10 +50,9 @@ const DifferentUserPage = ({diffUser, user,setUpdate, update}) => {
           <h1>{diffUser.name}</h1>
           <h2>{`(${diffUser.pronouns})`}</h2>
           <img id="profile-picture" src={diffUser.profile_picture?diffUser.profile_picture:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"} alt={`${diffUser.name}`}/>
-          <h2>{diffUser.job_title}</h2>
-          {diffUser.employer ? <p>Works at: {diffUser.employer}</p> : null}
+          {diffUser.employer ? <h2>{diffUser.job_title} <br /> @ {diffUser.employer}</h2> : <h2>{diffUser.job_title}</h2>}
           {diffUser[`open_to_work?`] ? <><h3>✅ Open to Work!</h3></> : null }
-          <h3>{diffUser.location}</h3>
+          <h3>📍 {diffUser.location}</h3>
           {proLinks}
           <a href={`mailto:${diffUser.email}`}>E-mail</a>
           <p>{diffUser.posts.length} posts</p>

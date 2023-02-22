@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   
-  attributes :id, :name, :pronouns, :email, :job_title, :employer, :open_to_work?, :profile_picture, :follower_count, :following_count, :following_id
+  attributes :id, :name, :pronouns, :email, :job_title, :employer, :open_to_work?, :profile_picture, :follower_count, :following_count, :following_id, :location
 
   has_many :professional_links
   has_many :posts
