@@ -49,7 +49,7 @@ Logged in users should be able to:
 
 **User Search / Load Different User Profile / Follow a User**
 
-![User Search Gif](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/0d2f40b3-e0f4-4c44-accc-4bd41cf5cb34.gif?ClientID=vimeo-core-prod&Date=1677024008&Signature=cf90deb24b50aae41f6cae59af9337fcf0f5f8f7)
+![User Search Gif](public/User-Search-Gif-Engine-Ear-high.gif)
 
 
 ## Tech Stack & Requirements:
