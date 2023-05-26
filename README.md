@@ -33,7 +33,7 @@ Logged in users should be able to:
 
 **User Login / User Profile**
 
-![User Login & Profile Gif](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/2930308d-ef54-405f-8445-ab074b63f891.gif?ClientID=vimeo-core-prod&Date=1677021663&Signature=4d78c0f70e18b9be386a09bafd4e25fb1d3a8e98)
+![User Login & Profile Gif](public/User-Login-Gif-Engine-Ear-high.gif)
 
 **Edit Profile**
 
