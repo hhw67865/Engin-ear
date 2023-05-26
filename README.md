@@ -37,7 +37,7 @@ Logged in users should be able to:
 
 **Edit Profile**
 
-![Edit Profile Gif](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/90cc28e0-70b7-43d2-97b6-d9a291c3c236.gif?ClientID=vimeo-core-prod&Date=1677023301&Signature=fcf1a18092bcdf56b8ac8f4aab141d5acfc01add)
+![Edit Profile Gif](public/Edit-Profile-Gif-Engine-Ear-high.gif)
 
 **Create Post**
 
