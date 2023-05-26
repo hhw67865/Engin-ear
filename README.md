@@ -45,7 +45,7 @@ Logged in users should be able to:
 
 **Add Comment / Delete Comment on Post**
 
-![Add & Delete Comment Gif](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/792552bc-6511-4589-b037-ace972969734.gif?ClientID=vimeo-core-prod&Date=1677025558&Signature=8e7448eef2427dce84817f85111542180c68ca98)
+![Add & Delete Comment Gif](public/Add-Delete-Comment-Gif-Engine-Ear-high.gif)
 
 **User Search / Load Different User Profile / Follow a User**
 
