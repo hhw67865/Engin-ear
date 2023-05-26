@@ -41,7 +41,7 @@ Logged in users should be able to:
 
 **Create Post**
 
-![Create Post Gif](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/36914b1c-2e60-4ddc-a94a-03b563e1c043.gif?ClientID=vimeo-core-prod&Date=1677024989&Signature=a4765b3a2212f51eeb3d6917c24eb8c1beb310b5)
+![Create Post Gif](public/Create-Post-Gif-Engine-Ear-high.gif)
 
 **Add Comment / Delete Comment on Post**
 
