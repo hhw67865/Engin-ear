@@ -74,7 +74,7 @@ sam_boahen = User.create(
     job_title: "Software Engineering Instructor",
     employer: "Flatiron School",
     open_to_work?: false,
-    profile_picture: "https://media.licdn.com/dms/image/C4D03AQGxMA-klXj00A/profile-displayphoto-shrink_400_400/0/1548552295799?e=1681948800&v=beta&t=DJap4CO8qyCbTKRHZ8wQ4VJgX8L0ldL1UFG53DoyzKs"
+    profile_picture: "https://media.licdn.com/dms/image/C4D03AQGxMA-klXj00A/profile-displayphoto-shrink_400_400/0/1548552295799?e=1690416000&v=beta&t=cqoQzHeKzNB6VzesU4V9b3l6ZZbcQ5HHJX1ME1E985M"
 )
 
 ProfessionalLink.create(
@@ -148,7 +148,7 @@ Comment.create(
 post_2 = Post.create(
     title: "Officially a Fullstack Software Engineer",
     post_body: "Today I graduated from Flatiron School's software engineering bootcamp. Thank you to my classmates and instructors for all the help along the way!",
-    picture_url: "https://media.licdn.com/dms/image/C4E22AQGZ5VRYdIx3iA/feedshare-shrink_800/0/1675459115441?e=1679529600&v=beta&t=6LrhslcDAF0emNpaTg8Ha1psdVzgZprcD2MqLzM91NQ",
+    picture_url: "https://hips.hearstapps.com/hmg-prod/images/graduation-wishes-1651254203.jpeg?crop=0.669xw:1.00xh;0.166xw,0&resize=1200:*",
     user_id: leah_cardoz.id
 )
 

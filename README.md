@@ -29,7 +29,7 @@ Logged in users should be able to:
 
 **Landing Page**
 
-![Landing Page Gif](https://videoapi-muybridge.vimeocdn.com/animated-thumbnails/image/5e489253-8448-4f6c-83ed-006dcd3e5d3d.gif?ClientID=vimeo-core-prod&Date=1677016937&Signature=3834ec115d5b809fc549cbb9292c9ea81d3ac74a)
+![Landing Page Gif](public/Landing-Page-Gif-Engine-Ear-high.gif)
 
 **User Login / User Profile**
 
